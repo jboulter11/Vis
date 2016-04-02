@@ -1,0 +1,10 @@
+PODS:
+  - FileKit (2.0.0)
+
+DEPENDENCIES:
+  - FileKit
+
+SPEC CHECKSUMS:
+  FileKit: fd360f82f62a1f70dd2ccdbe0950d3a6d1e25d1d
+
+COCOAPODS: 0.39.0
