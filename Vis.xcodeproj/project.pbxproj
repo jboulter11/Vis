@@ -14,6 +14,11 @@
 		0C42ED9B1CB065BE00DAF883 /* VisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42ED9A1CB065BE00DAF883 /* VisUITests.swift */; };
 		0C42EDA91CB0686800DAF883 /* VSBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42EDA81CB0686800DAF883 /* VSBrowserViewController.swift */; };
 		0C42EDAC1CB0987500DAF883 /* VSVisualizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42EDAB1CB0987500DAF883 /* VSVisualizationViewController.swift */; };
+		137160ED1CB0A21C007330B8 /* NSBitmapImageRep-CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 137160E31CB0A21C007330B8 /* NSBitmapImageRep-CreationExtensions.m */; };
+		137160EE1CB0A21C007330B8 /* TMVCushionRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 137160E51CB0A21C007330B8 /* TMVCushionRenderer.m */; };
+		137160EF1CB0A21C007330B8 /* TMVItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 137160E71CB0A21C007330B8 /* TMVItem.m */; };
+		137160F01CB0A21C007330B8 /* TreeMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 137160EA1CB0A21C007330B8 /* TreeMapView.m */; };
+		137160F11CB0A21C007330B8 /* ZoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 137160EC1CB0A21C007330B8 /* ZoomInfo.m */; };
 		1EE00A8D5ACE60754A4C3C3A /* Pods_Vis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC8ECDB8F7DE91E2C90CD56 /* Pods_Vis.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +53,18 @@
 		0C42ED9C1CB065BE00DAF883 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C42EDA81CB0686800DAF883 /* VSBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSBrowserViewController.swift; sourceTree = "<group>"; };
 		0C42EDAB1CB0987500DAF883 /* VSVisualizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSVisualizationViewController.swift; sourceTree = "<group>"; };
+		137160E11CB0A21C007330B8 /* Vis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vis-Bridging-Header.h"; sourceTree = "<group>"; };
+		137160E21CB0A21C007330B8 /* NSBitmapImageRep-CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBitmapImageRep-CreationExtensions.h"; sourceTree = "<group>"; };
+		137160E31CB0A21C007330B8 /* NSBitmapImageRep-CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBitmapImageRep-CreationExtensions.m"; sourceTree = "<group>"; };
+		137160E41CB0A21C007330B8 /* TMVCushionRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMVCushionRenderer.h; sourceTree = "<group>"; };
+		137160E51CB0A21C007330B8 /* TMVCushionRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMVCushionRenderer.m; sourceTree = "<group>"; };
+		137160E61CB0A21C007330B8 /* TMVItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMVItem.h; sourceTree = "<group>"; };
+		137160E71CB0A21C007330B8 /* TMVItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMVItem.m; sourceTree = "<group>"; };
+		137160E81CB0A21C007330B8 /* TreeMapView_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeMapView_Prefix.pch; sourceTree = "<group>"; };
+		137160E91CB0A21C007330B8 /* TreeMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeMapView.h; sourceTree = "<group>"; };
+		137160EA1CB0A21C007330B8 /* TreeMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeMapView.m; sourceTree = "<group>"; };
+		137160EB1CB0A21C007330B8 /* ZoomInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomInfo.h; sourceTree = "<group>"; };
+		137160EC1CB0A21C007330B8 /* ZoomInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomInfo.m; sourceTree = "<group>"; };
 		A094BD8035BA5DBFB6A783A6 /* Pods-Vis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vis.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vis/Pods-Vis.release.xcconfig"; sourceTree = "<group>"; };
 		AEC8ECDB8F7DE91E2C90CD56 /* Pods_Vis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E09E939BA584E72C52CD8480 /* Pods-Vis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vis/Pods-Vis.debug.xcconfig"; sourceTree = "<group>"; };
@@ -104,12 +121,24 @@
 		0C42ED7C1CB065BD00DAF883 /* Vis */ = {
 			isa = PBXGroup;
 			children = (
+				137160E21CB0A21C007330B8 /* NSBitmapImageRep-CreationExtensions.h */,
+				137160E31CB0A21C007330B8 /* NSBitmapImageRep-CreationExtensions.m */,
+				137160E41CB0A21C007330B8 /* TMVCushionRenderer.h */,
+				137160E51CB0A21C007330B8 /* TMVCushionRenderer.m */,
+				137160E61CB0A21C007330B8 /* TMVItem.h */,
+				137160E71CB0A21C007330B8 /* TMVItem.m */,
+				137160E81CB0A21C007330B8 /* TreeMapView_Prefix.pch */,
+				137160E91CB0A21C007330B8 /* TreeMapView.h */,
+				137160EA1CB0A21C007330B8 /* TreeMapView.m */,
+				137160EB1CB0A21C007330B8 /* ZoomInfo.h */,
+				137160EC1CB0A21C007330B8 /* ZoomInfo.m */,
 				0C42ED7D1CB065BD00DAF883 /* AppDelegate.swift */,
 				0C42EDA81CB0686800DAF883 /* VSBrowserViewController.swift */,
 				0C42EDAB1CB0987500DAF883 /* VSVisualizationViewController.swift */,
 				0C42ED811CB065BD00DAF883 /* Assets.xcassets */,
 				0C42ED831CB065BD00DAF883 /* Main.storyboard */,
 				0C42ED861CB065BD00DAF883 /* Info.plist */,
+				137160E11CB0A21C007330B8 /* Vis-Bridging-Header.h */,
 			);
 			path = Vis;
 			sourceTree = "<group>";
@@ -331,7 +360,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C42EDAC1CB0987500DAF883 /* VSVisualizationViewController.swift in Sources */,
+				137160EE1CB0A21C007330B8 /* TMVCushionRenderer.m in Sources */,
 				0C42EDA91CB0686800DAF883 /* VSBrowserViewController.swift in Sources */,
+				137160ED1CB0A21C007330B8 /* NSBitmapImageRep-CreationExtensions.m in Sources */,
+				137160EF1CB0A21C007330B8 /* TMVItem.m in Sources */,
+				137160F01CB0A21C007330B8 /* TreeMapView.m in Sources */,
+				137160F11CB0A21C007330B8 /* ZoomInfo.m in Sources */,
 				0C42ED7E1CB065BD00DAF883 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,11 +500,14 @@
 			baseConfigurationReference = E09E939BA584E72C52CD8480 /* Pods-Vis.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Vis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jimboulter.Vis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Vis/Vis-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -479,11 +516,13 @@
 			baseConfigurationReference = A094BD8035BA5DBFB6A783A6 /* Pods-Vis.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Vis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jimboulter.Vis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Vis/Vis-Bridging-Header.h";
 			};
 			name = Release;
 		};
