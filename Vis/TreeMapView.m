@@ -33,7 +33,8 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 
 - (id)initWithFrame:(NSRect)frameRect
 {
-    [super initWithFrame:frameRect];
+    //WTF
+    self = [super initWithFrame:frameRect];
 	
     if ([[self superclass] instancesRespondToSelector:@selector(awakeFromNib)])
         [super awakeFromNib];
@@ -82,10 +83,10 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
     if ( delegate != nil )
         [nc removeObserver: delegate name:nil object:self];
 
-    [_rootItemRenderer release];
-    [self deallocContentCache]; 
+//    [_rootItemRenderer release];
+    [self deallocContentCache];
 
-    [super dealloc];
+//    [super dealloc];
 }
 
 - (id) delegate
@@ -351,7 +352,7 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 {
     [self deallocContentCache];
 
-    [_rootItemRenderer release];
+//    [_rootItemRenderer release];
 
     _selectedRenderer = nil;
     _touchedRenderer = nil;
@@ -394,9 +395,10 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 		[_rootItemRenderer drawCushionInBitmap: oldImageRep];
 	}
 	else
-		oldImageRep = [_cachedContent retain];
+//		oldImageRep = [_cachedContent retain];
+        oldImageRep = _cachedContent;
 	
-	[oldImageRep autorelease];
+//	[oldImageRep autorelease];
 	
 	//before we animate the zooming, make sure the new content is loaded and rendered,
 	//so the new content can be drawn immediately after the zooming has finished
@@ -550,7 +552,7 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 		[tmvItem calcLayout: NSMakeRect(0, 0, size2.width, size2.height)];
 	}
 	
-	[tmvItem release];
+//	[tmvItem release];
 }
 
 - (void) benchmarkRenderingWithImageSize: (NSSize) size count: (unsigned) count
@@ -567,8 +569,8 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 		[tmvItem drawCushionInBitmap: bitmap];
 	}
 	
-	[tmvItem release];
-	[bitmap release];
+//	[tmvItem release];
+//	[bitmap release];
 }
 
 @end
@@ -592,7 +594,7 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 
 - (void) allocContentCache
 {
-    [_cachedContent release];
+//    [_cachedContent release];
 
     NSRect viewBounds = [self bounds];
 
@@ -605,7 +607,7 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 {
     if ( _cachedContent != nil )
     {
-        [_cachedContent release];
+//        [_cachedContent release];
         _cachedContent = nil;
     }
 }
@@ -670,7 +672,7 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 		
 	if ( [zoomInfo hasFinished] )
 	{
-		[_zoomer release];
+//		[_zoomer release];
 		_zoomer = nil;
 		
 		[self setNeedsDisplay: YES];

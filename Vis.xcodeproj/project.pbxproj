@@ -121,17 +121,7 @@
 		0C42ED7C1CB065BD00DAF883 /* Vis */ = {
 			isa = PBXGroup;
 			children = (
-				137160E21CB0A21C007330B8 /* NSBitmapImageRep-CreationExtensions.h */,
-				137160E31CB0A21C007330B8 /* NSBitmapImageRep-CreationExtensions.m */,
-				137160E41CB0A21C007330B8 /* TMVCushionRenderer.h */,
-				137160E51CB0A21C007330B8 /* TMVCushionRenderer.m */,
-				137160E61CB0A21C007330B8 /* TMVItem.h */,
-				137160E71CB0A21C007330B8 /* TMVItem.m */,
-				137160E81CB0A21C007330B8 /* TreeMapView_Prefix.pch */,
-				137160E91CB0A21C007330B8 /* TreeMapView.h */,
-				137160EA1CB0A21C007330B8 /* TreeMapView.m */,
-				137160EB1CB0A21C007330B8 /* ZoomInfo.h */,
-				137160EC1CB0A21C007330B8 /* ZoomInfo.m */,
+				137160F21CB0A46F007330B8 /* TreeMapView */,
 				0C42ED7D1CB065BD00DAF883 /* AppDelegate.swift */,
 				0C42EDA81CB0686800DAF883 /* VSBrowserViewController.swift */,
 				0C42EDAB1CB0987500DAF883 /* VSVisualizationViewController.swift */,
@@ -159,6 +149,24 @@
 				0C42ED9C1CB065BE00DAF883 /* Info.plist */,
 			);
 			path = VisUITests;
+			sourceTree = "<group>";
+		};
+		137160F21CB0A46F007330B8 /* TreeMapView */ = {
+			isa = PBXGroup;
+			children = (
+				137160E21CB0A21C007330B8 /* NSBitmapImageRep-CreationExtensions.h */,
+				137160E31CB0A21C007330B8 /* NSBitmapImageRep-CreationExtensions.m */,
+				137160E41CB0A21C007330B8 /* TMVCushionRenderer.h */,
+				137160E51CB0A21C007330B8 /* TMVCushionRenderer.m */,
+				137160E61CB0A21C007330B8 /* TMVItem.h */,
+				137160E71CB0A21C007330B8 /* TMVItem.m */,
+				137160E81CB0A21C007330B8 /* TreeMapView_Prefix.pch */,
+				137160E91CB0A21C007330B8 /* TreeMapView.h */,
+				137160EA1CB0A21C007330B8 /* TreeMapView.m */,
+				137160EB1CB0A21C007330B8 /* ZoomInfo.h */,
+				137160EC1CB0A21C007330B8 /* ZoomInfo.m */,
+			);
+			name = TreeMapView;
 			sourceTree = "<group>";
 		};
 		9696842739FF44CB6268E2B9 /* Pods */ = {

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@import AppKit;
 
 //
 // The treemap colors all have the "brightness" BASE_BRIGHTNESS.

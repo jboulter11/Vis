@@ -20,7 +20,8 @@
 {
 	self = [super init];
 	
-	_image = [image retain];
+//	_image = [image retain];
+    _image = image;
 	
 	_delegate = delegate;
 	_delegateSelector = selector;
@@ -80,14 +81,14 @@
 
 - (void) dealloc
 {
-	[_image release];
-	
-	if ( _timer != nil && [_timer isValid] )
-		[_timer invalidate]; //timer will be released by run loop
-	
-	_timer = nil;
-	
-	[super dealloc];
+//	[_image release];
+//	
+//	if ( _timer != nil && [_timer isValid] )
+//		[_timer invalidate]; //timer will be released by run loop
+//	
+//	_timer = nil;
+//	
+//	[super dealloc];
 }
 
 

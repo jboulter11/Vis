@@ -7,7 +7,7 @@
 //
 
 #import "TMVCushionRenderer.h"
-#import <ppc_intrinsics.h>	//special PowerPC (603+) instructions
+//#import <ppc_intrinsics.h>	//special PowerPC (603+) instructions
 
 #define MAX_RGB_VALUE 1.0f
 
@@ -32,7 +32,7 @@ SEL g_renderFunction;	//optimized rendering function depending on processor feat
 	//set default cushion color
 	g_defaultCushionColor = [NSColor colorWithCalibratedRed: 0 green: 0 blue: 0.9 alpha: 1];
 	g_defaultCushionColor = [TMVCushionRenderer normalizeColor: g_defaultCushionColor];
-	[g_defaultCushionColor retain];
+//	[g_defaultCushionColor retain];
 	
 	//determine optimal rendering function
 	g_renderFunction = @selector(renderCushionInBitmapGeneric:);
@@ -47,7 +47,8 @@ SEL g_renderFunction;	//optimized rendering function depending on processor feat
     self = [super init];
 
 	//_color will be release in setColor, so retain it allthough g_defaultCushionColor is a global variable
-    _color = [g_defaultCushionColor retain]; 
+//    _color = [g_defaultCushionColor retain];
+    _color = g_defaultCushionColor;
 
     memset( _surface, sizeof(_surface), 0 );
 
@@ -58,7 +59,7 @@ SEL g_renderFunction;	//optimized rendering function depending on processor feat
 
 - (id) initWithRect: (NSRect) rect
 {
-    [self init];
+    //[self init];
 
     _rect = rect;
 
@@ -67,9 +68,9 @@ SEL g_renderFunction;	//optimized rendering function depending on processor feat
 
 - (void) dealloc
 {
-    [_color release];
-
-    [super dealloc];
+//    [_color release];
+//
+//    [super dealloc];
 }
 
 - (NSRect) rect
@@ -93,8 +94,8 @@ SEL g_renderFunction;	//optimized rendering function depending on processor feat
 	if ( ![[newColor colorSpaceName] isEqualToString: NSCalibratedRGBColorSpace] )
 		newColor = [newColor colorUsingColorSpaceName: NSCalibratedRGBColorSpace];
 	
-    [newColor retain];
-    [_color release];
+//    [newColor retain];
+//    [_color release];
 
     _color = newColor;
 }
@@ -237,6 +238,7 @@ Unoptimized:
 //PowerPC optimzed version (603+)
 - (void) renderCushionInBitmapPPC603: (NSBitmapImageRep*) bitmap
 {
+/*
 	NSRect rect = [self rect];
 	
     const float *surface = [self surface];
@@ -328,10 +330,12 @@ Unoptimized:
             pixel[2] = (unsigned char) (blue * 255);
         }
     }
+*/
 }
 
 - (void) renderCushionInBitmapPPC603Single: (NSBitmapImageRep*) bitmap; //PowerPC optimzed version (603+)
 {
+/*
 	NSRect rect = [self rect];
 	
     const float *surface = [self surface];
@@ -420,6 +424,7 @@ Unoptimized:
             pixel[2] = (unsigned char) (blue * 255.0f);
         }
     }
+ */
 }
 
 + (void) normalizeColorRed: (float*) red green: (float*) green blue: (float*) blue
