@@ -17,10 +17,13 @@ class VSBrowserViewController: NSViewController, NSBrowserDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        Path.Current = Path()
+//        browser.action = #selector(self.didSelectSomething)
     }
     
     func browser(sender: NSBrowser, numberOfRowsInColumn column: Int) -> Int {
-        if column == 0 {
+        if column == 1 {
             return subpath.children(recursive:false).count
         } else {
             return Path.Current.children(recursive:false).count
@@ -34,9 +37,20 @@ class VSBrowserViewController: NSViewController, NSBrowserDelegate {
         } else {
             path = subpath
         }
+        let theCell:NSBrowserCell = cell as! NSBrowserCell
+        if row < path.children().count {
+            theCell.title = path.children()[row].fileName
+            theCell.leaf = !path.children()[row].isDirectory
+        }
         
-        cell.setTitle(path.children()[row].fileName)
-//        cell.leaf(!path.children()[row].isDirectory)
+        let _:String = String(path)
     }
     
+    func didSelectSomething() {
+        let row = browser.selectedRowInColumn(0)
+        subpath = Path.Current.children()[row]
+        browser.reloadColumn(1)
+    }
+    
+
 }
