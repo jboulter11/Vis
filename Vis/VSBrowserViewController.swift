@@ -51,6 +51,4 @@ class VSBrowserViewController: NSViewController, NSBrowserDelegate {
         subpath = Path.Current.children()[row]
         browser.reloadColumn(1)
     }
-    
-
 }
