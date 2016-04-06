@@ -104,6 +104,7 @@
 		0C42ED7C1CB065BD00DAF883 /* Vis */ = {
 			isa = PBXGroup;
 			children = (
+				0C42EDAA1CB0778C00DAF883 /* View Controllers */,
 				0C42ED7D1CB065BD00DAF883 /* AppDelegate.swift */,
 				0C42EDA81CB0686800DAF883 /* VSBrowserViewController.swift */,
 				0C42EDAB1CB0987500DAF883 /* VSVisualizationViewController.swift */,
@@ -130,6 +131,14 @@
 				0C42ED9C1CB065BE00DAF883 /* Info.plist */,
 			);
 			path = VisUITests;
+			sourceTree = "<group>";
+		};
+		0C42EDAA1CB0778C00DAF883 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0C42EDA81CB0686800DAF883 /* VSBrowserViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		9696842739FF44CB6268E2B9 /* Pods */ = {
