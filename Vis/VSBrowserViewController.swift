@@ -17,12 +17,12 @@ class VSBrowserViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
-        Path.Current = Path.Root
+//        Path.Current = Path.Root
         browser.action = #selector(self.didSelectSomething)
     }
     
     func parentNodeForColumn(column: Int) -> Path {
-        var result = Path.Root
+        var result = Path.Current
         for i in 0..<column {
             result = result.children(recursive: false)[browser.selectedRowInColumn(i)]
         }

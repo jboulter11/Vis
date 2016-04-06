@@ -10,7 +10,7 @@ import Cocoa
 import FileKit
 
 class VSExec {
-    var selectedPath:Path = Path.Root
+    var selectedPath:Path = Path.Current
     
     static var exec = VSExec()
 }
