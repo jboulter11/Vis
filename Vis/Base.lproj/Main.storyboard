@@ -736,14 +736,32 @@
             </objects>
             <point key="canvasLocation" x="1528" y="329"/>
         </scene>
-        <!--Visualization View Controller-->
+        <!--Data Source-->
         <scene sceneID="V8f-dQ-2wu">
             <objects>
                 <viewController id="xI3-zr-8JE" customClass="VSVisualizationViewController" customModule="Vis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="VJ3-OR-6k6">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="wd2-EE-ohZ" customClass="TreeMapView">
+                                <rect key="frame" x="144" y="102" width="163" height="96"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="xI3-zr-8JE" id="kjW-Hu-NVT"/>
+                                    <outlet property="delegate" destination="xI3-zr-8JE" id="4S8-FX-fgz"/>
+                                </connections>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="wd2-EE-ohZ" firstAttribute="leading" secondItem="VJ3-OR-6k6" secondAttribute="leading" constant="144" id="Ukv-C6-Fs6"/>
+                            <constraint firstItem="wd2-EE-ohZ" firstAttribute="centerX" secondItem="VJ3-OR-6k6" secondAttribute="centerX" id="bAa-sV-qCC"/>
+                            <constraint firstItem="wd2-EE-ohZ" firstAttribute="centerY" secondItem="VJ3-OR-6k6" secondAttribute="centerY" id="cVj-Ay-GWp"/>
+                            <constraint firstItem="wd2-EE-ohZ" firstAttribute="top" secondItem="VJ3-OR-6k6" secondAttribute="top" constant="102" id="je4-2n-DbI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="treeMapView" destination="wd2-EE-ohZ" id="TYj-Gi-Ue0"/>
+                    </connections>
                 </viewController>
                 <customObject id="fQR-O7-eyU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

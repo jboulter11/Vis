@@ -3,3 +3,4 @@
 //
 
 #import "TreeMapView.h"
+#import "FileTypeColors.h"

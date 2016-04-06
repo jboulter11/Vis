@@ -69,7 +69,7 @@ typedef TMVItem* TMVCellId;
 
 // Data Source Note: Specifying nil as the item will refer to the "root" item.
 // (there must be one (and only one!) root item)
-@interface NSObject(TreeMapViewDataSource)
+@protocol TreeMapViewDataSource
 // required
 - (id) treeMapView: (TreeMapView*) view child: (unsigned) index ofItem: (id) item;
 - (BOOL) treeMapView: (TreeMapView*) view isNode: (id) item;
@@ -78,7 +78,7 @@ typedef TMVItem* TMVCellId;
 @end
 
 /* optional delegate methods */
-@interface NSObject(TreeMapViewDelegate)
+@protocol TreeMapViewDelegate
 - (NSString*) treeMapView: (TreeMapView*) view getToolTipByItem: (id) item;
 - (void) treeMapView: (TreeMapView*) view willDisplayItem: (id) item withRenderer: (TMVItem*) renderer;
 - (BOOL) treeMapView: (TreeMapView*) view shouldSelectItem: (id) item;
