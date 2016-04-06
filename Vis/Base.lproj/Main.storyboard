@@ -748,7 +748,7 @@
                                 <rect key="frame" x="144" y="102" width="163" height="96"/>
                                 <connections>
                                     <outlet property="dataSource" destination="xI3-zr-8JE" id="kjW-Hu-NVT"/>
-                                    <outlet property="delegate" destination="xI3-zr-8JE" id="BLL-98-3q6"/>
+                                    <outlet property="delegate" destination="xI3-zr-8JE" id="4S8-FX-fgz"/>
                                 </connections>
                             </customView>
                         </subviews>

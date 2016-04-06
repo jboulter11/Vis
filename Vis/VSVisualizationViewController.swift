@@ -41,8 +41,9 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     }
     
     func treeMapView(view: TreeMapView!, isNode item: AnyObject?) -> Bool {
-//        let path = toPath(item)
-        return true
+//        let path: Path = asPath(item)
+//        return !path.isDirectory
+        return true // this should always be true
     }
     
     func treeMapView(view: TreeMapView!, numberOfChildrenOfItem item: AnyObject?) -> UInt32 {
@@ -52,7 +53,12 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     }
     
     func treeMapView(view: TreeMapView!, weightByItem item: AnyObject?) -> UInt64 {
-        return asPath(item).fileSize!
+        let path: Path = asPath(item)
+        if path.isDirectory {
+            print(path.fileSize)
+            return 0
+        }
+        return path.fileSize!
     }
     
     // TreeMapViewDelegate Implementation
@@ -63,7 +69,8 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     
     func treeMapView(view: TreeMapView!, willDisplayItem item: AnyObject?, withRenderer renderer: TMVItem!) {
         let path = asPath(item)
-        renderer.setCushionColor(fileTypeColors.colorForKind(path.fileType?.rawValue))
+        let color:NSColor = fileTypeColors.colorForKind(path.fileType!.rawValue)
+        renderer.setCushionColor(color)
     }
     
     func treeMapView(view: TreeMapView!, willShowMenuForEvent event: NSEvent!) {
@@ -71,6 +78,6 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     }
     
     func treeMapView(view: TreeMapView!, shouldSelectItem item: AnyObject?) -> Bool {
-        return false;
+        return true;
     }
 }
