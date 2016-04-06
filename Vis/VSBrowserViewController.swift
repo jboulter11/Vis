@@ -9,7 +9,7 @@
 import Cocoa
 import FileKit
 
-class VSBrowserViewController: NSViewController, NSBrowserDelegate {
+class VSBrowserViewController: NSViewController {
 
     @IBOutlet weak var browser: NSBrowser!
     var subpath :Path = Path.Current
