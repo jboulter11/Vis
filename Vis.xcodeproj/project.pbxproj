@@ -106,10 +106,10 @@
 			children = (
 				0C42ED7D1CB065BD00DAF883 /* AppDelegate.swift */,
 				0C42EDA81CB0686800DAF883 /* VSBrowserViewController.swift */,
+				615100B11CB0831A0016E2BD /* VSInfoViewController.swift */,
 				0C42ED811CB065BD00DAF883 /* Assets.xcassets */,
 				0C42ED831CB065BD00DAF883 /* Main.storyboard */,
 				0C42ED861CB065BD00DAF883 /* Info.plist */,
-				615100B11CB0831A0016E2BD /* VSInfoViewController.swift */,
 			);
 			path = Vis;
 			sourceTree = "<group>";

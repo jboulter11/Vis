@@ -56,6 +56,8 @@ class VSInfoViewController: NSViewController {
     {
         print(fpath.attributes)
     }
+    
+    // TODO: Write test for this class, testing correct info displayed for file
 }
 
 
