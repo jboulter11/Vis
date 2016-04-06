@@ -24,8 +24,10 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     }
     
     func didReceiveNotification() {
-        let path = VSExec.exec.selectedPath.components.map{$0.rawValue}
-        treeMapView.reloadAndPerformZoomIntoItem(path as [AnyObject])
+        if VSExec.exec.selectedPath.isDirectory {
+            let path = VSExec.exec.selectedPath.components.map{$0.rawValue}
+            treeMapView.reloadAndPerformZoomIntoItem(path as [AnyObject])
+        }
     }
     
     // TreeMapViewDataSource Implementation
