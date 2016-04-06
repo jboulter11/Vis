@@ -50,6 +50,10 @@ class VSBrowserViewController: NSViewController {
     
     func didSelectSomething() {
         let row = browser.selectedRowInColumn(browser.selectedColumn)
+        
+        if row == -1 || browser.selectedColumn == -1 {
+            return
+        }
         let parent = parentNodeForColumn(browser.selectedColumn)
         let path = parent.children(recursive: false)[row]
         VSExec.exec.selectedPath = path
