@@ -11,7 +11,7 @@ import FileKit
 
 class VSInfoViewController: NSViewController {
     
-    let fileName: Path = "/Users/Grippj/Documents/Departure.jpg"
+    let fileName: Path = "/"
     
     // It's hard to see these view on the storyboard but the textview is inside of the 
     // scrollview. The image view is stacked ontop of the scrollview.
