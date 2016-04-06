@@ -40,10 +40,10 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
         return path.children(recursive: false)[Int(index)].rawValue as AnyObject
     }
     
+    // returns true if item is a directory, otherwise returns false
     func treeMapView(view: TreeMapView!, isNode item: AnyObject?) -> Bool {
-//        let path: Path = asPath(item)
-//        return !path.isDirectory
-        return true // this should always be true
+        let path: Path = asPath(item)
+        return path.isDirectory
     }
     
     func treeMapView(view: TreeMapView!, numberOfChildrenOfItem item: AnyObject?) -> UInt32 {
@@ -68,8 +68,8 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     }
     
     func treeMapView(view: TreeMapView!, willDisplayItem item: AnyObject?, withRenderer renderer: TMVItem!) {
-        let path = asPath(item)
-        let color:NSColor = fileTypeColors.colorForKind(path.fileType!.rawValue)
+        let path: Path = asPath(item)
+        let color: NSColor = fileTypeColors.colorForKind(path.fileType!.rawValue)
         renderer.setCushionColor(color)
     }
     
