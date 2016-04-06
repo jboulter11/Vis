@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class VSBrowserViewController: NSViewController, NSBrowserDelegate {
+class VSBrowserViewController: NSViewController {
 
     @IBOutlet weak var browser: NSBrowser!
     
