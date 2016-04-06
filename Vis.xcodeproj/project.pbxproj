@@ -124,6 +124,7 @@
 		0C42ED7C1CB065BD00DAF883 /* Vis */ = {
 			isa = PBXGroup;
 			children = (
+				0CB67D2E1CB4AC53007269E3 /* Vis-Bridging-Header.h */,
 				0CB67D361CB4AC59007269E3 /* TreeMapView */,
 				0CB67D371CB4AC67007269E3 /* View Controllers */,
 				0C42ED7D1CB065BD00DAF883 /* AppDelegate.swift */,
@@ -164,7 +165,6 @@
 				0CB67D2B1CB4AC53007269E3 /* TreeMapView_Prefix.pch */,
 				0CB67D2C1CB4AC53007269E3 /* TreeMapView.h */,
 				0CB67D2D1CB4AC53007269E3 /* TreeMapView.m */,
-				0CB67D2E1CB4AC53007269E3 /* Vis-Bridging-Header.h */,
 				0CB67D2F1CB4AC53007269E3 /* ZoomInfo.h */,
 				0CB67D301CB4AC53007269E3 /* ZoomInfo.m */,
 			);
