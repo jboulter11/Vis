@@ -12,13 +12,12 @@ import FileKit
 class VSBrowserViewController: NSViewController {
 
     @IBOutlet weak var browser: NSBrowser!
-    var subpath :Path = Path.Current
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
-        Path.Current = Path()
+        Path.Current = Path.Root
         browser.action = #selector(self.didSelectSomething)
     }
     
@@ -53,6 +52,7 @@ class VSBrowserViewController: NSViewController {
         let row = browser.selectedRowInColumn(browser.selectedColumn)
         let parent = parentNodeForColumn(browser.selectedColumn)
         let path = parent.children(recursive: false)[row]
-        NSNotificationCenter.defaultCenter().postNotificationName("SelectedPathDidChange", object: path.rawValue)
+        VSExec.exec.selectedPath = path
+        NSNotificationCenter.defaultCenter().postNotificationName("SelectedPathDidChange", object: nil)
     }
 }

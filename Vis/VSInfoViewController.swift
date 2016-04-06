@@ -47,9 +47,16 @@ class VSInfoViewController: NSViewController {
         location.stringValue = "Where:"
         kind.stringValue = "Kind:"
         
-        //printFilePath(fileName)
-        displayInformationForPath(fileName)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didReceiveNotification), name: "SelectedPathDidChange", object: nil)
         
+        //printFilePath(fileName)
+//        displayInformationForPath(fileName)
+        
+    }
+    
+    func didReceiveNotification() {
+        print(VSExec.exec.selectedPath)
+        displayInformationForPath(VSExec.exec.selectedPath)
     }
     
     func displayInformationForPath ( fpath: Path)
