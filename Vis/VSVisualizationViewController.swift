@@ -20,9 +20,13 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
         // Do view setup here.
 //        treeMapView.delegate
         treeMapView.reloadData()
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didReceiveNotification), name: "SelectedPathDidChange", object: nil)
     }
     
+    func didReceiveNotification() {
+        let path = VSExec.exec.selectedPath.components.map{$0.rawValue}
+        treeMapView.reloadAndPerformZoomIntoItem(path as [AnyObject])
+    }
     
     // TreeMapViewDataSource Implementation
     
@@ -30,7 +34,7 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
         if let i = item {
             return Path(String(i))
         } else {
-            return Path("/Users/richie/Dev/rcos-yacs/yacs")
+            return VSExec.exec.selectedPath
         }
     }
     
