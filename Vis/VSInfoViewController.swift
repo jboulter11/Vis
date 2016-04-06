@@ -11,8 +11,6 @@ import FileKit
 
 class VSInfoViewController: NSViewController {
     
-    let fileName: Path = "/"
-    
     // It's hard to see these view on the storyboard but the textview is inside of the 
     // scrollview. The image view is stacked ontop of the scrollview.
 
@@ -34,6 +32,8 @@ class VSInfoViewController: NSViewController {
     @IBOutlet weak var location: NSTextField!
     @IBOutlet weak var locationInfo: NSTextField!
     
+    // This is the place where we store text from a file for the text view
+    
     var textStorage: NSTextStorage!
     
     override func viewDidLoad() {
@@ -47,31 +47,42 @@ class VSInfoViewController: NSViewController {
         location.stringValue = "Where:"
         kind.stringValue = "Kind:"
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didReceiveNotification), name: "SelectedPathDidChange", object: nil)
         
-        //printFilePath(fileName)
-//        displayInformationForPath(fileName)
+        //  This is our observer for file selection. This is called whenever a new file is selected.
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didReceiveNotification), name: "SelectedPathDidChange", object: nil)
         
     }
     
+    // This function calls displayInformationForPath, which updates the entire view to the current path
+    
     func didReceiveNotification() {
-        print(VSExec.exec.selectedPath)
         displayInformationForPath(VSExec.exec.selectedPath)
     }
     
+    // Function to update the view to the current path
+    
     func displayInformationForPath ( fpath: Path)
     {
+        // Date formatter turns an NSDate object ( IE 12/6/2016 ) into a string
+        
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle
         dateFormatter.timeStyle = .ShortStyle
         
+        // Number formatter adds commas to a number
+        
         let numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        //numberFormatter.stringFromNumber(NSNumber(unsignedLongLong: fpath.fileSize!))!
+        
+        // Hides the overlapping views
         
         fileInfo.editable = false
+        fileInfo.hidden = true
         scrollView.hidden = true
         imageDisplay.hidden = true
+        
+        // Sets the values for file type
         
         locationInfo.stringValue = fpath.rawValue
         sizeInfo.stringValue = "\(numberFormatter.stringFromNumber(NSNumber(unsignedLongLong: fpath.fileSize!))!) Bytes"
@@ -81,23 +92,32 @@ class VSInfoViewController: NSViewController {
         
         if (fpath.isDirectory)
         {
-            type.stringValue = "Directory"
+            displayDirectory(fpath)
         }
-        
-        switch fpath.pathExtension {
             
-        case "txt": displayTextFile(fpath)
-        case "jpg": displayImageFile(fpath)
-            type.stringValue = "JPEG Image"
-        case "png": displayImageFile(fpath)
-            type.stringValue = "PNG Image"
-        case "tif": displayImageFile(fpath)
-            type.stringValue = "TIFF Image"
-        default:
-            print("error")
+        // Different functions for each type of file
             
+        else
+        {
+            switch fpath.pathExtension {
+                
+            case "txt": displayTextFile(fpath)
+                
+            case "jpeg": displayImageFile(fpath)
+                type.stringValue = "JPEG Image"
+            case "jpg": displayImageFile(fpath)
+                type.stringValue = "JPEG Image"
+            case "png": displayImageFile(fpath)
+                type.stringValue = "PNG Image"
+            case "pdf": displayImageFile(fpath)
+                type.stringValue = "Portable Document Format"
+            case "tif": displayImageFile(fpath)
+                type.stringValue = "TIFF Image"
+            default:
+                displayDefaultFile(fpath)
+                
+            }
         }
-        
     }
     
     func displayTextFile (fpath: Path)
@@ -113,11 +133,29 @@ class VSInfoViewController: NSViewController {
             text = try String(contentsOfFile: fpath.rawValue, encoding: NSUTF8StringEncoding)
         }
         catch {/* error handling here */}
-        
-        fileInfo.textStorage?.appendAttributedString(NSAttributedString(string: text))
+    
+        fileInfo.textStorage?.setAttributedString(NSAttributedString(string: text))
         type.stringValue = "Plain Text Document"
         
-        scrollView.hidden = false
+        //scrollView.hidden = false
+        //fileInfo.hidden = false
+    }
+    
+    func displayDirectory (fpath: Path)
+    {
+        type.stringValue = "Directory"
+        let fImage: NSImage = NSImage(named: "Folder")!
+        imageDisplay.hidden = false
+        scrollView.hidden = true
+        imageDisplay.image = fImage
+        
+    }
+    
+    func displayDefaultFile (fpath: Path)
+    {
+        imageDisplay.hidden = true
+        fileInfo.hidden = true
+        scrollView.hidden = true
     }
     
     func displayImageFile (fpath: Path)
