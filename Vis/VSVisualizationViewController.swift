@@ -67,9 +67,14 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
         return asPath(item).description
     }
     
+    /*  
+        sets color based on file type.
+        has loose dependency on FileTypeColors, this could easily be swapped out for any other system:
+        the function of FileTypeColors is simply to return an NSColor given a file type as a string.
+     */
     func treeMapView(view: TreeMapView!, willDisplayItem item: AnyObject?, withRenderer renderer: TMVItem!) {
         let path: Path = asPath(item)
-        let color: NSColor = fileTypeColors.colorForKind(path.fileType!.rawValue)
+        let color: NSColor = fileTypeColors.colorForKind(path.pathExtension)
         renderer.setCushionColor(color)
     }
     
