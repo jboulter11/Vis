@@ -11,7 +11,7 @@ import FileKit
 
 class VSInfoViewController: NSViewController {
     
-    let fileName: Path = "/Users/Grippj/Documents/"
+    let fileName: Path = "/"
     
     @IBOutlet weak var path: NSTextField!
     @IBOutlet weak var size: NSTextField!

@@ -41,6 +41,9 @@ class VSBrowserViewController: NSViewController {
         if row < path.children().count {
             theCell.title = path.children()[row].fileName
             theCell.leaf = !path.children()[row].isDirectory
+        } else {
+            theCell.title = ""
+            theCell.leaf = false
         }
         
         let _:String = String(path)

@@ -15,6 +15,7 @@
 		0C42EDA91CB0686800DAF883 /* VSBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42EDA81CB0686800DAF883 /* VSBrowserViewController.swift */; };
 		0C42EDAC1CB0987500DAF883 /* VSVisualizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42EDAB1CB0987500DAF883 /* VSVisualizationViewController.swift */; };
 		1EE00A8D5ACE60754A4C3C3A /* Pods_Vis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC8ECDB8F7DE91E2C90CD56 /* Pods_Vis.framework */; };
+		615100B21CB0831A0016E2BD /* VSInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615100B11CB0831A0016E2BD /* VSInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		0C42ED9C1CB065BE00DAF883 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C42EDA81CB0686800DAF883 /* VSBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSBrowserViewController.swift; sourceTree = "<group>"; };
 		0C42EDAB1CB0987500DAF883 /* VSVisualizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSVisualizationViewController.swift; sourceTree = "<group>"; };
+		615100B11CB0831A0016E2BD /* VSInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSInfoViewController.swift; sourceTree = "<group>"; };
 		A094BD8035BA5DBFB6A783A6 /* Pods-Vis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vis.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vis/Pods-Vis.release.xcconfig"; sourceTree = "<group>"; };
 		AEC8ECDB8F7DE91E2C90CD56 /* Pods_Vis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E09E939BA584E72C52CD8480 /* Pods-Vis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vis/Pods-Vis.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				0C42ED7D1CB065BD00DAF883 /* AppDelegate.swift */,
 				0C42EDA81CB0686800DAF883 /* VSBrowserViewController.swift */,
 				0C42EDAB1CB0987500DAF883 /* VSVisualizationViewController.swift */,
+				615100B11CB0831A0016E2BD /* VSInfoViewController.swift */,
 				0C42ED811CB065BD00DAF883 /* Assets.xcassets */,
 				0C42ED831CB065BD00DAF883 /* Main.storyboard */,
 				0C42ED861CB065BD00DAF883 /* Info.plist */,
@@ -341,6 +344,7 @@
 			files = (
 				0C42EDAC1CB0987500DAF883 /* VSVisualizationViewController.swift in Sources */,
 				0C42EDA91CB0686800DAF883 /* VSBrowserViewController.swift in Sources */,
+				615100B21CB0831A0016E2BD /* VSInfoViewController.swift in Sources */,
 				0C42ED7E1CB065BD00DAF883 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
