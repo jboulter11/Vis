@@ -14,11 +14,7 @@
 		0C42ED9B1CB065BE00DAF883 /* VisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42ED9A1CB065BE00DAF883 /* VisUITests.swift */; };
 		0C42EDA91CB0686800DAF883 /* VSBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42EDA81CB0686800DAF883 /* VSBrowserViewController.swift */; };
 		0C42EDAC1CB0987500DAF883 /* VSVisualizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C42EDAB1CB0987500DAF883 /* VSVisualizationViewController.swift */; };
-		137160ED1CB0A21C007330B8 /* NSBitmapImageRep-CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 137160E31CB0A21C007330B8 /* NSBitmapImageRep-CreationExtensions.m */; };
-		137160EE1CB0A21C007330B8 /* TMVCushionRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 137160E51CB0A21C007330B8 /* TMVCushionRenderer.m */; };
-		137160EF1CB0A21C007330B8 /* TMVItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 137160E71CB0A21C007330B8 /* TMVItem.m */; };
-		137160F01CB0A21C007330B8 /* TreeMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 137160EA1CB0A21C007330B8 /* TreeMapView.m */; };
-		137160F11CB0A21C007330B8 /* ZoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 137160EC1CB0A21C007330B8 /* ZoomInfo.m */; };
+		137160EE1CB0A21C007330B8 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		1EE00A8D5ACE60754A4C3C3A /* Pods_Vis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC8ECDB8F7DE91E2C90CD56 /* Pods_Vis.framework */; };
 		615100B21CB0831A0016E2BD /* VSInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615100B11CB0831A0016E2BD /* VSInfoViewController.swift */; };
 /* End PBXBuildFile section */
@@ -111,7 +107,6 @@
 		0C42ED7C1CB065BD00DAF883 /* Vis */ = {
 			isa = PBXGroup;
 			children = (
-				0C42EDAA1CB0778C00DAF883 /* View Controllers */,
 				0C42ED7D1CB065BD00DAF883 /* AppDelegate.swift */,
 				0C42EDA81CB0686800DAF883 /* VSBrowserViewController.swift */,
 				0C42EDAB1CB0987500DAF883 /* VSVisualizationViewController.swift */,
@@ -119,7 +114,6 @@
 				0C42ED811CB065BD00DAF883 /* Assets.xcassets */,
 				0C42ED831CB065BD00DAF883 /* Main.storyboard */,
 				0C42ED861CB065BD00DAF883 /* Info.plist */,
-				137160E11CB0A21C007330B8 /* Vis-Bridging-Header.h */,
 			);
 			path = Vis;
 			sourceTree = "<group>";
@@ -140,14 +134,6 @@
 				0C42ED9C1CB065BE00DAF883 /* Info.plist */,
 			);
 			path = VisUITests;
-			sourceTree = "<group>";
-		};
-		0C42EDAA1CB0778C00DAF883 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				0C42EDA81CB0686800DAF883 /* VSBrowserViewController.swift */,
-			);
-			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		9696842739FF44CB6268E2B9 /* Pods */ = {
@@ -349,7 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C42EDAC1CB0987500DAF883 /* VSVisualizationViewController.swift in Sources */,
-				137160EE1CB0A21C007330B8 /* TMVCushionRenderer.m in Sources */,
+				137160EE1CB0A21C007330B8 /* (null) in Sources */,
 				0C42EDA91CB0686800DAF883 /* VSBrowserViewController.swift in Sources */,
 				615100B21CB0831A0016E2BD /* VSInfoViewController.swift in Sources */,
 				0C42ED7E1CB065BD00DAF883 /* AppDelegate.swift in Sources */,
