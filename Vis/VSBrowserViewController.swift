@@ -51,11 +51,19 @@ class VSBrowserViewController: NSViewController {
     func didSelectSomething() {
         let row = browser.selectedRowInColumn(browser.selectedColumn)
         
-        if row == -1 || browser.selectedColumn == -1 {
+        var parent:Path
+        if browser.selectedColumn >= 0 {
+            parent = parentNodeForColumn(browser.selectedColumn)
+        } else {
             return
         }
-        let parent = parentNodeForColumn(browser.selectedColumn)
-        let path = parent.children(recursive: false)[row]
+        
+        var path:Path
+        if row >= 0 {
+            path = parent.children(recursive: false)[row]
+        } else {
+            path = parent
+        }
         VSExec.exec.selectedPath = path
         NSNotificationCenter.defaultCenter().postNotificationName("SelectedPathDidChange", object: nil)
     }
