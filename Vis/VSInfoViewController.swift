@@ -120,6 +120,8 @@ class VSInfoViewController: NSViewController {
         }
     }
     
+    // function to display a text file
+    
     func displayTextFile (fpath: Path)
     {
         textStorage = NSTextStorage()
@@ -141,6 +143,8 @@ class VSInfoViewController: NSViewController {
         //fileInfo.hidden = false
     }
     
+    // function to display a directory
+    
     func displayDirectory (fpath: Path)
     {
         type.stringValue = "Directory"
@@ -151,12 +155,17 @@ class VSInfoViewController: NSViewController {
         
     }
     
+    //function to display the default file (a file type that hasn't been implemented yet)
+    
     func displayDefaultFile (fpath: Path)
     {
         imageDisplay.hidden = true
         fileInfo.hidden = true
         scrollView.hidden = true
     }
+    
+    
+    // function to display an image
     
     func displayImageFile (fpath: Path)
     {
