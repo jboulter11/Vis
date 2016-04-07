@@ -15,14 +15,14 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     
     let fileTypeColors: FileTypeColors = FileTypeColors()
     
+    // load data from filesystem into visualization
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
-//        treeMapView.delegate
         treeMapView.reloadData()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didReceiveNotification), name: "SelectedPathDidChange", object: nil)
     }
     
+    // notification listener for change in selected path
     func didReceiveNotification() {
         if VSExec.exec.selectedPath.isDirectory {
             let path = VSExec.exec.selectedPath.components.map{$0.rawValue}
@@ -40,6 +40,7 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
         }
     }
     
+    // returns child of directory at index
     func treeMapView(view: TreeMapView!, child index: UInt32, ofItem item: AnyObject?) -> AnyObject! {
         let path: Path = asPath(item)
         print(path)
@@ -52,12 +53,14 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
         return path.isDirectory
     }
     
+    // returns number of children in directory
     func treeMapView(view: TreeMapView!, numberOfChildrenOfItem item: AnyObject?) -> UInt32 {
         let path: Path = asPath(item)
         let children = path.children()
         return UInt32(path.children().count)
     }
     
+    // returns size of file at given path, 0 if path is a directory
     func treeMapView(view: TreeMapView!, weightByItem item: AnyObject?) -> UInt64 {
         let path: Path = asPath(item)
         if path.isDirectory {
@@ -69,6 +72,7 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     
     // TreeMapViewDelegate Implementation
     
+    // return tooltip value for file
     func treeMapView(view: TreeMapView!, getToolTipByItem item: AnyObject?) -> String! {
         return asPath(item).description
     }
@@ -83,6 +87,8 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
         let color: NSColor = fileTypeColors.colorForKind(path.pathExtension)
         renderer.setCushionColor(color)
     }
+    
+    // NOT IMPLEMENTED YET
     
     func treeMapView(view: TreeMapView!, willShowMenuForEvent event: NSEvent!) {
         
