@@ -19,6 +19,8 @@
 		0CB67D331CB4AC53007269E3 /* TMVItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CB67D2A1CB4AC53007269E3 /* TMVItem.m */; };
 		0CB67D341CB4AC53007269E3 /* TreeMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CB67D2D1CB4AC53007269E3 /* TreeMapView.m */; };
 		0CB67D351CB4AC53007269E3 /* ZoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CB67D301CB4AC53007269E3 /* ZoomInfo.m */; };
+		0CBE667B1CB5AFAA009FA543 /* VSExec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBE667A1CB5AFAA009FA543 /* VSExec.swift */; };
+		1368E6951CB58945004ACD1E /* FileTypeColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 1368E6941CB58945004ACD1E /* FileTypeColors.m */; };
 		137160EE1CB0A21C007330B8 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		1EE00A8D5ACE60754A4C3C3A /* Pods_Vis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC8ECDB8F7DE91E2C90CD56 /* Pods_Vis.framework */; };
 		615100B21CB0831A0016E2BD /* VSInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615100B11CB0831A0016E2BD /* VSInfoViewController.swift */; };
@@ -67,6 +69,9 @@
 		0CB67D2E1CB4AC53007269E3 /* Vis-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Vis-Bridging-Header.h"; sourceTree = "<group>"; };
 		0CB67D2F1CB4AC53007269E3 /* ZoomInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomInfo.h; sourceTree = "<group>"; };
 		0CB67D301CB4AC53007269E3 /* ZoomInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomInfo.m; sourceTree = "<group>"; };
+		0CBE667A1CB5AFAA009FA543 /* VSExec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSExec.swift; sourceTree = "<group>"; };
+		1368E6931CB58945004ACD1E /* FileTypeColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTypeColors.h; sourceTree = "<group>"; };
+		1368E6941CB58945004ACD1E /* FileTypeColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTypeColors.m; sourceTree = "<group>"; };
 		615100B11CB0831A0016E2BD /* VSInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSInfoViewController.swift; sourceTree = "<group>"; };
 		A094BD8035BA5DBFB6A783A6 /* Pods-Vis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vis.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vis/Pods-Vis.release.xcconfig"; sourceTree = "<group>"; };
 		AEC8ECDB8F7DE91E2C90CD56 /* Pods_Vis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +129,8 @@
 		0C42ED7C1CB065BD00DAF883 /* Vis */ = {
 			isa = PBXGroup;
 			children = (
+				0CBE667A1CB5AFAA009FA543 /* VSExec.swift */,
+				0CB67D2E1CB4AC53007269E3 /* Vis-Bridging-Header.h */,
 				0CB67D361CB4AC59007269E3 /* TreeMapView */,
 				0CB67D371CB4AC67007269E3 /* View Controllers */,
 				0C42ED7D1CB065BD00DAF883 /* AppDelegate.swift */,
@@ -155,6 +162,8 @@
 		0CB67D361CB4AC59007269E3 /* TreeMapView */ = {
 			isa = PBXGroup;
 			children = (
+				1368E6931CB58945004ACD1E /* FileTypeColors.h */,
+				1368E6941CB58945004ACD1E /* FileTypeColors.m */,
 				0CB67D251CB4AC53007269E3 /* NSBitmapImageRep-CreationExtensions.h */,
 				0CB67D261CB4AC53007269E3 /* NSBitmapImageRep-CreationExtensions.m */,
 				0CB67D271CB4AC53007269E3 /* TMVCushionRenderer.h */,
@@ -164,7 +173,6 @@
 				0CB67D2B1CB4AC53007269E3 /* TreeMapView_Prefix.pch */,
 				0CB67D2C1CB4AC53007269E3 /* TreeMapView.h */,
 				0CB67D2D1CB4AC53007269E3 /* TreeMapView.m */,
-				0CB67D2E1CB4AC53007269E3 /* Vis-Bridging-Header.h */,
 				0CB67D2F1CB4AC53007269E3 /* ZoomInfo.h */,
 				0CB67D301CB4AC53007269E3 /* ZoomInfo.m */,
 			);
@@ -380,11 +388,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C42EDAC1CB0987500DAF883 /* VSVisualizationViewController.swift in Sources */,
+				0CBE667B1CB5AFAA009FA543 /* VSExec.swift in Sources */,
 				137160EE1CB0A21C007330B8 /* (null) in Sources */,
 				0CB67D351CB4AC53007269E3 /* ZoomInfo.m in Sources */,
 				0CB67D331CB4AC53007269E3 /* TMVItem.m in Sources */,
 				0CB67D341CB4AC53007269E3 /* TreeMapView.m in Sources */,
 				0CB67D321CB4AC53007269E3 /* TMVCushionRenderer.m in Sources */,
+				1368E6951CB58945004ACD1E /* FileTypeColors.m in Sources */,
 				0CB67D311CB4AC53007269E3 /* NSBitmapImageRep-CreationExtensions.m in Sources */,
 				0C42EDA91CB0686800DAF883 /* VSBrowserViewController.swift in Sources */,
 				615100B21CB0831A0016E2BD /* VSInfoViewController.swift in Sources */,
