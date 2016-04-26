@@ -239,10 +239,11 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
     NSPoint point = [theEvent locationInWindow];
     point = [self convertPoint: point fromView: nil];
     point.y--;
+    printf("%f %s %f", point.x, ",", point.y);
 
     //first test if the mouse is still in the same item
-    if ( _touchedRenderer != nil && [_touchedRenderer hitTest: point] != nil )
-        return;
+//    if ( _touchedRenderer != nil && [_touchedRenderer hitTest: point] != nil )
+//        return;
 
     //the mouse is moved to a new item, so look for the new one
      TMVItem* renderer = [_rootItemRenderer hitTest: point];

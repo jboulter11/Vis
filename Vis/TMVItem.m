@@ -371,7 +371,9 @@ static NSMutableDictionary *_cushionTextAttributes;
         for ( i = 0; i < childCount; i++ )
             [childWidths addObject: standardWidth];
 
-        *horizontal = TRUE;
+//        *horizontal = TRUE;
+        *horizontal = _rect.size.width >= _rect.size.height; //WHY WHY WHY WHY
+
     }
     else
     {

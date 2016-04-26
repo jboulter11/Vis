@@ -20,6 +20,7 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
         super.viewDidLoad()
         treeMapView.reloadData()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didReceiveNotification), name: "SelectedPathDidChange", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(selectionChangedNotification), name: TreeMapViewSelectionDidChangedNotification, object: nil)
     }
     
     // notification listener for change in selected path
@@ -28,6 +29,11 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
             let path = VSExec.exec.selectedPath.components.map{$0.rawValue}
             treeMapView.reloadAndPerformZoomIntoItem(path as [AnyObject])
         }
+    }
+    
+    func selectionChangedNotification() {
+        let item = String(treeMapView.selectedItem())
+        print(item)
     }
     
     // TreeMapViewDataSource Implementation
@@ -96,5 +102,15 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     
     func treeMapView(view: TreeMapView!, shouldSelectItem item: AnyObject?) -> Bool {
         return true;
+    }
+//    
+//    @interface NSObject(TreeMapViewNotifications)
+//    - (void)treeMapViewSelectionDidChange: (NSNotification*) notification;
+//    - (void)treeMapViewSelectionIsChanging: (NSNotification*) notification; //not yet implemented
+//    - (void)treeMapViewItemTouched: (NSNotification*) notification;
+//    @end
+//
+    override func treeMapViewSelectionDidChange(notification: NSNotification!) {
+
     }
 }
