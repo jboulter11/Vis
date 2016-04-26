@@ -139,8 +139,8 @@ class VSInfoViewController: NSViewController {
         fileInfo.textStorage?.setAttributedString(NSAttributedString(string: text))
         type.stringValue = "Plain Text Document"
         
-        //scrollView.hidden = false
-        //fileInfo.hidden = false
+        scrollView.hidden = false
+        fileInfo.hidden = false
     }
     
     // function to display a directory

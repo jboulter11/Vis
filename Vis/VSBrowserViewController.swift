@@ -21,6 +21,7 @@ class VSBrowserViewController: NSViewController {
         browser.action = #selector(self.didSelectSomething)
     }
     
+    //get parent node for specific column
     func parentNodeForColumn(column: Int) -> Path {
         var result = Path.Current
         for i in 0..<column {

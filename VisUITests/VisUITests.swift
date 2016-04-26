@@ -32,7 +32,6 @@ class VisUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
-        
         let visWindow = XCUIApplication().windows["Vis"]
         visWindow.splitGroups.childrenMatchingType(.Splitter).element.click()
         visWindow.click()
@@ -45,8 +44,7 @@ class VisUITests: XCTestCase {
         elementsQuery.staticTexts["Vis.swiftmodule"].click()
         visWindow.buttons[XCUIIdentifierCloseWindow].click()
 //        XCTAssert(visWindow.browsers.scrollViews.otherElements.staticTexts["Applications"].click())
-        
-        
+
     }
     
 }

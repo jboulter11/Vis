@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import FileKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -14,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
+//        Path.Current = Path("/Users/jimboulter/Downloads/")
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
