@@ -50,6 +50,16 @@ class VisUITests: XCTestCase {
         
     }
     
+    func testVis() {
+        
+        let visWindow = XCUIApplication().windows["Vis"]
+        visWindow.click()
+        
+        let splitGroup = visWindow.childrenMatchingType(.SplitGroup).element
+        splitGroup.click()
+        
+    }
+    
     func testPictureDirectory() {
         
         let visWindow = XCUIApplication().windows["Vis"]
