@@ -90,5 +90,38 @@ class VisUITests: XCTestCase {
         
     }
     
+    func testPictureInfo() {
+        
+        let visWindow = XCUIApplication().windows["Vis"]
+        let elementsQuery = visWindow.browsers.scrollViews.otherElements
+        elementsQuery.staticTexts["Test Directory"].click()
+        elementsQuery.staticTexts["Picture Files"].click()
+        elementsQuery.staticTexts["Departure.png"].click()
+        visWindow.childrenMatchingType(.SplitGroup).element.childrenMatchingType(.SplitGroup).element.childrenMatchingType(.Image).element.click()
+        visWindow.staticTexts["PNG Image"].click()
+        visWindow.staticTexts["1,318,965 Bytes"].click()
+        
+        XCTAssert(visWindow.childrenMatchingType(.SplitGroup).element.childrenMatchingType(.SplitGroup).element.childrenMatchingType(.Image).element.exists)
+        XCTAssert(visWindow.staticTexts["PNG Image"].exists)
+        XCTAssert(visWindow.staticTexts["1,318,965 Bytes"].exists)
+        
+    }
+    
+    func testTextInfo() {
+        
+        let visWindow = XCUIApplication().windows["Vis"]
+        let elementsQuery = visWindow.browsers.scrollViews.otherElements
+        elementsQuery.staticTexts["Test Directory"].click()
+        elementsQuery.staticTexts["Text Files"].click()
+        elementsQuery.staticTexts["Vision.txt"].click()
+        visWindow.childrenMatchingType(.SplitGroup).element.childrenMatchingType(.SplitGroup).element.childrenMatchingType(.ScrollView).element.childrenMatchingType(.TextView).element.click()
+        visWindow.staticTexts["Plain Text Document"].click()
+        visWindow.staticTexts["2,468 Bytes"].click()
+        
+        XCTAssert(visWindow.childrenMatchingType(.SplitGroup).element.childrenMatchingType(.SplitGroup).element.childrenMatchingType(.ScrollView).element.childrenMatchingType(.TextView).element.exists)
+        XCTAssert(visWindow.staticTexts["Plain Text Document"].exists)
+        XCTAssert(visWindow.staticTexts["2,468 Bytes"].exists)
+    }
+    
     
 }
