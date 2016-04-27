@@ -28,7 +28,21 @@ class VisUITests: XCTestCase {
         super.tearDown()
     }
     
+    func testExample() {
+        
+        let app = XCUIApplication();
+        
+        let visWindow = XCUIApplication().windows["Vis"]
 
+        let elementsQuery = visWindow.browsers.scrollViews.otherElements
+        elementsQuery.staticTexts["Test Directory"].click()
+        elementsQuery.staticTexts["PDF Files"].click()
+        elementsQuery.staticTexts["Algorithm Design - Jon Kleinberg and Eva Tardos, Tsinghua Univer"].click()
+        
+        XCTAssert();
+        
+        
+    }
     
     
 }
