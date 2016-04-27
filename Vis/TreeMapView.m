@@ -60,7 +60,7 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 		   selector: @selector(windowDidBecomeKey:)
 			   name: NSWindowDidBecomeKeyNotification
 			 object: [self window]];
-	
+
     return self;
 }
 
@@ -626,21 +626,31 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 	NSEnumerator *pathEnum = [path objectEnumerator];
 	[pathEnum nextObject]; //we start with the second item, as the first corresponds to our root
 	
-	id dataItem;
-	while( (dataItem = [pathEnum nextObject]) != nil )
-	{
+	id dataItem = [path componentsJoinedByString:@"/"].stringByStandardizingPath;
+
+//	while( (dataItem = [pathEnum nextObject]) != nil )
+//	{
 		NSEnumerator *childEnum = [parent childEnumerator];
 		
 		//find renderer displaying "dataItem"
-		while ( (child = [childEnum nextObject]) != nil && [child item] != dataItem );
+//		while ( (child = [childEnum nextObject]) != nil && [child item] != dataItem );
+        NSLog(@"dataItem %@", dataItem);
+        NSString* item;
+        while (true) {
+            child = [childEnum nextObject];
+            if (child == nil) break;
+            item = [child item];
+            if ([item isEqualToString: dataItem]) break;
+            NSLog(@"child item %@", [child item]);
+        }
 		
 		if ( child == nil )
 			return nil; //not found
 		
 		parent = child;
-	}
+//	}
 	
-	return child;
+	return parent;
 }
 /*
 - (void) onZoomTimer: (NSTimer*) timer
