@@ -103,7 +103,7 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     }
     
     func treeMapView(view: TreeMapView!, needsDeleteItem item: AnyObject!) {
-        let str = String(item!)
+        let str = String(item)
         if let itemPath:Path! = Path(String(item!)) {
             do {
                 try itemPath.deleteFile()
