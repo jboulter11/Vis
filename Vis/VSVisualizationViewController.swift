@@ -30,10 +30,14 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     
     // notification listener for change in selected path
     func didReceiveNotification() {
+        let path = VSExec.exec.selectedPath.components.map{$0.rawValue} as [AnyObject]
         if VSExec.exec.selectedPath.isDirectory {
-            let path = VSExec.exec.selectedPath.components.map{$0.rawValue}
-            treeMapView.reloadAndPerformZoomIntoItem(path as [AnyObject])
+            treeMapView.reloadAndPerformZoomIntoItem(path)
         }
+        else {
+            treeMapView.selectItemByPathToItem(path)
+        }
+
     }
     
     func selectionChangedNotification() {
