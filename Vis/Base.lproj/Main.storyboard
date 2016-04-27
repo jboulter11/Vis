@@ -709,7 +709,7 @@
         <!--Browser View Controller-->
         <scene sceneID="mJb-UD-onp">
             <objects>
-                <viewController id="eYa-ff-ixl" customClass="VSBrowserViewController" customModule="Vis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VSBrowserViewController" id="eYa-ff-ixl" customClass="VSBrowserViewController" customModule="Vis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="XHS-8J-SEI">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
