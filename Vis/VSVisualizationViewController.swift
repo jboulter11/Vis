@@ -13,6 +13,11 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
 
     @IBOutlet weak var treeMapView: TreeMapView!
     
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        preferredContentSize = NSSize(width: 1000, height: 400)
+    }
+    
     let fileTypeColors: FileTypeColors = FileTypeColors()
     
     // load data from filesystem into visualization

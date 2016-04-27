@@ -745,7 +745,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="wd2-EE-ohZ" customClass="TreeMapView">
-                                <rect key="frame" x="144" y="102" width="163" height="96"/>
+                                <rect key="frame" x="20" y="20" width="410" height="260"/>
                                 <connections>
                                     <outlet property="dataSource" destination="xI3-zr-8JE" id="kjW-Hu-NVT"/>
                                     <outlet property="delegate" destination="xI3-zr-8JE" id="4S8-FX-fgz"/>
@@ -753,10 +753,10 @@
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="wd2-EE-ohZ" firstAttribute="leading" secondItem="VJ3-OR-6k6" secondAttribute="leading" constant="144" id="Ukv-C6-Fs6"/>
+                            <constraint firstItem="wd2-EE-ohZ" firstAttribute="leading" secondItem="VJ3-OR-6k6" secondAttribute="leading" constant="20" id="Ukv-C6-Fs6"/>
                             <constraint firstItem="wd2-EE-ohZ" firstAttribute="centerX" secondItem="VJ3-OR-6k6" secondAttribute="centerX" id="bAa-sV-qCC"/>
                             <constraint firstItem="wd2-EE-ohZ" firstAttribute="centerY" secondItem="VJ3-OR-6k6" secondAttribute="centerY" id="cVj-Ay-GWp"/>
-                            <constraint firstItem="wd2-EE-ohZ" firstAttribute="top" secondItem="VJ3-OR-6k6" secondAttribute="top" constant="102" id="je4-2n-DbI"/>
+                            <constraint firstItem="wd2-EE-ohZ" firstAttribute="top" secondItem="VJ3-OR-6k6" secondAttribute="top" constant="20" id="je4-2n-DbI"/>
                         </constraints>
                     </view>
                     <connections>

@@ -11,6 +11,7 @@ import FileKit
 
 class VSExec {
     var selectedPath:Path = Path.Current
+    var rightClickedFile:Path!
     
     static var exec = VSExec()
 }

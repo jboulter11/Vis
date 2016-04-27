@@ -13,11 +13,15 @@ class VSBrowserViewController: NSViewController {
 
     @IBOutlet weak var browser: NSBrowser!
     
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        preferredContentSize = NSSize(width: 500, height: 400)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
-//        Path.Current = Path.Root
         browser.action = #selector(self.didSelectSomething)
     }
     

@@ -36,6 +36,11 @@ class VSInfoViewController: NSViewController {
     
     var textStorage: NSTextStorage!
     
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        preferredContentSize = NSSize(width: 500, height: 400)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

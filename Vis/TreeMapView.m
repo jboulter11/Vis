@@ -229,6 +229,8 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 		[[self window] makeFirstResponder: self];
 	}
 	
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"rightClickedFile" object:self];
+    
 	[super rightMouseDown: theEvent];
 }
 

@@ -34,8 +34,6 @@
 	
     [image addRepresentation: self];
     [image setFlipped: [view isFlipped]];
-	
-	//return [image autorelease];
     return image;
 }
 
