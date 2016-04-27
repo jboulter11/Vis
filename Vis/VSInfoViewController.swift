@@ -44,6 +44,8 @@ class VSInfoViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imageDisplay.wantsLayer = true
+        
         // These string values correspond to the first column of labels 
         
         created.stringValue = "Created:"
@@ -154,6 +156,7 @@ class VSInfoViewController: NSViewController {
     {
         type.stringValue = "Directory"
         let fImage: NSImage = NSImage(named: "Folder")!
+        imageDisplay.layer?.backgroundColor = NSColor.clearColor().CGColor
         imageDisplay.hidden = false
         scrollView.hidden = true
         imageDisplay.image = fImage

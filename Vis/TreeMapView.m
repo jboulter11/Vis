@@ -284,7 +284,7 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 {
     if([delegate respondsToSelector:@selector(treeMapView:needsDeleteItem:)])
     {
-        [delegate treeMapView:self needsDeleteItem:_rightClickedRenderer];
+        [delegate treeMapView:self needsDeleteItem:_rightClickedRenderer.item];
     }
 }
 

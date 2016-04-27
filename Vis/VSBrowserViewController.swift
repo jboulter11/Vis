@@ -27,7 +27,7 @@ class VSBrowserViewController: NSViewController {
     
     //get parent node for specific column
     func parentNodeForColumn(column: Int) -> Path {
-        var result = Path.Current
+        var result = VSExec.exec.rootPath
         for i in 0..<column {
             result = result.children(recursive: false)[browser.selectedRowInColumn(i)]
         }
@@ -57,10 +57,12 @@ class VSBrowserViewController: NSViewController {
         let row = browser.selectedRowInColumn(browser.selectedColumn)
         
         var parent:Path
+        print(browser.selectedColumn)
+        print(row)
         if browser.selectedColumn >= 0 {
             parent = parentNodeForColumn(browser.selectedColumn)
         } else {
-            return
+            parent = parentNodeForColumn(0)
         }
         
         var path:Path
