@@ -67,7 +67,6 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     // returns number of children in directory
     func treeMapView(view: TreeMapView!, numberOfChildrenOfItem item: AnyObject?) -> UInt32 {
         let path: Path = asPath(item)
-        let children = path.children()
         return UInt32(path.children().count)
     }
     
@@ -97,6 +96,13 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
         let path: Path = asPath(item)
         let color: NSColor = fileTypeColors.colorForKind(path.pathExtension)
         renderer.setCushionColor(color)
+    }
+    
+    func treeMapView(view: TreeMapView!, needsDeleteItem item: AnyObject!) {
+        if let itemToDelete = item as? TMVItem! {
+            itemToDelete.
+        }
+        
     }
     
     // NOT IMPLEMENTED YET

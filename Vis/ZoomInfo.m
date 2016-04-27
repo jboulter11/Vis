@@ -46,8 +46,8 @@
 	
 	_rect = zoomIn ? endRect: startRect;
 	
-	float maxPixelToZoom = fmaxf( fabsf( NSWidth(endRect) - NSWidth(startRect) ),
-								  fabsf( NSHeight(endRect) - NSHeight(startRect) ) );
+	float maxPixelToZoom = fmaxf( fabs( NSWidth(endRect) - NSWidth(startRect) ),
+								  fabs( NSHeight(endRect) - NSHeight(startRect) ) );
 	
 	float zoomStepCount = maxPixelToZoom / (shiftKeyPressed ? 10.0 : 40.0);
 	

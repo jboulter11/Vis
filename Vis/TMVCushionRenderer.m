@@ -37,7 +37,7 @@ SEL g_renderFunction;	//optimized rendering function depending on processor feat
 	//determine optimal rendering function
 	g_renderFunction = @selector(renderCushionInBitmapGeneric:);
 	long gestaltValue = 0;
-	OSErr result = Gestalt( gestaltPowerPCProcessorFeatures, &gestaltValue );
+	//OSErr result = Gestalt( gestaltPowerPCProcessorFeatures, &gestaltValue );
 	if ( ( gestaltValue & gestaltPowerPCHasSquareRootInstructions ) != 0 )
 		g_renderFunction = @selector(renderCushionInBitmapPPC603Single:);
 }
@@ -183,7 +183,7 @@ Unoptimized:
     const float colB = [baseColor blueComponent];
 
     unsigned char *pixels = [bitmap bitmapData];
-    int bytesPerRow = [bitmap bytesPerRow];
+    int bytesPerRow = (int)[bitmap bytesPerRow];
 	
     int ix, iy;
 	int yStart = NSMinY(rect);

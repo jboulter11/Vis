@@ -193,7 +193,7 @@ static NSMutableDictionary *_cushionTextAttributes;
 
 - (unsigned) childCount
 {
-    return [_childRenderers count];
+    return (unsigned)[_childRenderers count];
 }
 
 - (TMVItem *) hitTest: (NSPoint) aPoint
@@ -353,7 +353,7 @@ static NSMutableDictionary *_cushionTextAttributes;
                  childWidths: (NSMutableArray*) childWidths
                 rowsAreHoriz: (BOOL*) horizontal
 {
-    unsigned childCount = [_childRenderers count];
+    unsigned childCount = (unsigned)[_childRenderers count];
     unsigned i;
 	NSNumber *num = nil;
 	
@@ -422,7 +422,7 @@ static NSMutableDictionary *_cushionTextAttributes;
     unsigned i;
     double sizeUsed= 0;
     double rowHeight= 0;
-    unsigned childCount = [_childRenderers count];
+    unsigned childCount = (unsigned)[_childRenderers count];
 
     *childsUsed = 0;
 

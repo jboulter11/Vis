@@ -13,6 +13,7 @@
 NSString *TreeMapViewItemTouchedNotification = @"TreeMapViewItemTouched";
 NSString *TreeMapViewSelectionDidChangedNotification = @"TreeMapViewSelectionDidChangeed";
 NSString *TreeMapViewSelectionIsChangingNotification = @"TreeMapViewSelectionIsChanging";
+NSString *TreeMapViewRightClickNotification = @"TreeMapViewRightClickNotification";
 NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in userInfo of a TreeMapViewItemTouchedNotification
 
 //================ interface TreeMapView(Private) ======================================================
@@ -30,6 +31,8 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 //================ implementation TreeMapView ======================================================
 
 @implementation TreeMapView
+
+#pragma mark - View Lifecycle
 
 - (id)initWithFrame:(NSRect)frameRect
 {
@@ -89,6 +92,65 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 //    [super dealloc];
 }
 
+- (void) drawRect: (NSRect) rect
+{
+    //first, draw the focus rect, if we are first responder
+    if ( [[self window] isKeyWindow]
+        && [[self window] firstResponder] == self )
+    {
+        [NSGraphicsContext saveGraphicsState];
+        
+        NSSetFocusRingStyle( NSFocusRingOnly );
+        
+        [[NSColor keyboardFocusIndicatorColor] set];
+        NSFrameRectWithWidth( [self visibleRect], 1 );
+        
+        [NSGraphicsContext restoreGraphicsState];
+    }
+    
+    //If the window is being resized, we don't draw the tree map (too slow).
+    //same for the case that we don't have anything to draw
+    if ( [self inLiveResize] || _rootItemRenderer == nil || [_rootItemRenderer childCount] == 0 )
+    {
+        //NSDrawWindowBackground( rect );
+        NSEraseRect( rect );
+        return;
+    }
+    
+    if ( _zoomer != nil )
+    {
+        [_zoomer drawImage];
+        return;
+    }
+    
+    //if our size has changed, re-layout items
+    NSRect viewBounds = [self bounds];
+    BOOL relayout = !NSEqualRects( viewBounds, [_rootItemRenderer rect] );
+    if ( relayout )
+    {
+        [_rootItemRenderer calcLayout: viewBounds];
+        
+        [self deallocContentCache];
+    }
+    
+    [self drawInCache];
+    
+    NSImage *image = [_cachedContent suitableImageForView: self];
+    
+    [image drawAtPoint: NSMakePoint( 0, 0 )
+              fromRect: viewBounds
+             operation: NSCompositeCopy
+              fraction: 1];
+    
+    if ( _selectedRenderer != nil )
+    {
+        [_selectedRenderer drawHighlightFrame];
+    }
+    
+}
+
+#pragma mark - Delegate and Data Source
+
 - (id) delegate
 {
     return delegate;
@@ -114,6 +176,7 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
     REGISTER_DELEGATE( treeMapViewSelectionDidChange,	TreeMapViewSelectionDidChangedNotification );
     REGISTER_DELEGATE( treeMapViewSelectionIsChanging,	TreeMapViewSelectionIsChangingNotification );
     REGISTER_DELEGATE( treeMapViewItemTouched,		TreeMapViewItemTouchedNotification );
+    REGISTER_DELEGATE( treeMapViewItemRightClicked, TreeMapViewRightClickNotification  );
 
 #undef REGISTER_DELEGATE
 }
@@ -141,74 +204,10 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
         
 #undef RAISE_EXCEPTION
 }
-
-- (void) drawRect: (NSRect) rect
-{
-	//first, draw the focus rect, if we are first responder
-	if ( [[self window] isKeyWindow]
-		 && [[self window] firstResponder] == self )
-	{
-		[NSGraphicsContext saveGraphicsState];
-		
-		NSSetFocusRingStyle( NSFocusRingOnly );
-		
-		[[NSColor keyboardFocusIndicatorColor] set];		
-		NSFrameRectWithWidth( [self visibleRect], 1 ); 
-		
-		[NSGraphicsContext restoreGraphicsState];
-	}
-	
-	//If the window is being resized, we don't draw the tree map (too slow).
-	//same for the case that we don't have anything to draw
-    if ( [self inLiveResize] || _rootItemRenderer == nil || [_rootItemRenderer childCount] == 0 )
-    {
-        //NSDrawWindowBackground( rect );
-        NSEraseRect( rect );
-        return;
-    }
-	
-	if ( _zoomer != nil )
-	{
-		[_zoomer drawImage];
-		return;
-	}
-
-    //if our size has changed, re-layout items
-    NSRect viewBounds = [self bounds];
-    BOOL relayout = !NSEqualRects( viewBounds, [_rootItemRenderer rect] );
-    if ( relayout )
-    {
-        [_rootItemRenderer calcLayout: viewBounds];
- 
-        [self deallocContentCache];
-    }
-	
-    [self drawInCache];
-
-    NSSize imageSize = NSMakeSize( NSWidth(viewBounds), NSHeight(viewBounds) );
-
-    NSImage *image = [_cachedContent suitableImageForView: self];
-
-    [image drawAtPoint: NSMakePoint( 0, 0 )
-              fromRect: viewBounds
-             operation: NSCompositeCopy
-              fraction: 1];
-
-    if ( _selectedRenderer != nil )
-    {
-        [_selectedRenderer drawHighlightFrame];
-    }
-	
-}
 	
 - (void) mouseDown: (NSEvent*) theEvent
 {
-    NSPoint point = [theEvent locationInWindow];
-    point = [self convertPoint: point fromView: nil];
-    point.y--;
-
-    //find the hitted item
-    TMVItem* renderer = [_rootItemRenderer hitTest: point];
+    TMVItem* renderer = [self getItemForPoint:[theEvent locationInWindow]];
 
     if ( renderer != _selectedRenderer )
     {
@@ -228,8 +227,15 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 	{
 		[[self window] makeFirstResponder: self];
 	}
-	
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"rightClickedFile" object:self];
+    
+    TMVItem* renderer = [self getItemForPoint:[theEvent locationInWindow]];
+    
+    if( renderer != _rightClickedRenderer )
+    {
+        _rightClickedRenderer = renderer;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:TreeMapViewRightClickNotification object:self];
+    }
     
 	[super rightMouseDown: theEvent];
 }
@@ -274,14 +280,39 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
     [[NSNotificationCenter defaultCenter] postNotificationName: TreeMapViewItemTouchedNotification object: self userInfo: userInfo];
 }
 
+- (void) delegateShouldDeleteRightClickedItem:(id)sender
+{
+    if([delegate respondsToSelector:@selector(treeMapView:needsDeleteItem:)])
+    {
+        [delegate treeMapView:self needsDeleteItem:_rightClickedRenderer];
+    }
+}
+
 - (NSMenu*) menuForEvent: (NSEvent*) event
 {
     if ( [delegate respondsToSelector: @selector(treeMapView: willShowMenuForEvent:)] )
         [delegate treeMapView: self willShowMenuForEvent: event];
 
+    if(event.type == NSRightMouseDown)
+    {
+        NSMenu *theMenu = [[NSMenu alloc] initWithTitle:@"Contextual Menu"];
+        [theMenu insertItemWithTitle:@"Delete" action:@selector(delegateShouldDeleteRightClickedItem:) keyEquivalent:@"" atIndex:0];
+        return theMenu;
+    }
     return [super menuForEvent: event];
 }
 
+
+#pragma mark - Utilities
+
+- (TMVItem*) getItemForPoint:(NSPoint)point
+{
+    point = [self convertPoint: point fromView: nil];
+    point.y--;
+    
+    //find the hitted item
+    return [_rootItemRenderer hitTest: point];
+}
 
 - (TMVCellId) cellIdByPoint: (NSPoint) point inViewCoords: (BOOL) viewCoords;
 {

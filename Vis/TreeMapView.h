@@ -22,6 +22,7 @@ typedef TMVItem* TMVCellId;
     IBOutlet id dataSource;
     TMVItem *_selectedRenderer;
     TMVItem *_touchedRenderer;
+    TMVItem *_rightClickedRenderer;
     NSBitmapImageRep *_cachedContent;
 	id _zoomer;
 }
@@ -82,6 +83,7 @@ typedef TMVItem* TMVCellId;
 - (NSString*) treeMapView: (TreeMapView*) view getToolTipByItem: (id) item;
 - (void) treeMapView: (TreeMapView*) view willDisplayItem: (id) item withRenderer: (TMVItem*) renderer;
 - (BOOL) treeMapView: (TreeMapView*) view shouldSelectItem: (id) item;
+- (void) treeMapView: (TreeMapView*) view needsDeleteItem: (id) item;
 - (void) treeMapView: (TreeMapView*) view willShowMenuForEvent: (NSEvent*) event;
 @end
 
@@ -95,5 +97,6 @@ extern NSString *TMVTouchedItem;	//key for touched item in userInfo of a TreeMap
 - (void)treeMapViewSelectionDidChange: (NSNotification*) notification;
 - (void)treeMapViewSelectionIsChanging: (NSNotification*) notification; //not yet implemented
 - (void)treeMapViewItemTouched: (NSNotification*) notification;
+- (void)treeMapViewItemRightClicked: (NSNotification*) notification;
 @end
 
