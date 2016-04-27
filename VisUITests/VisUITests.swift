@@ -28,10 +28,66 @@ class VisUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-
+    func testPDFDirectory() {
+        
+        let elementsQuery = XCUIApplication().windows["Vis"].browsers.scrollViews.otherElements
+        elementsQuery.staticTexts["Test Directory"].click()
+        elementsQuery.staticTexts["PDF Files"].click()
+        elementsQuery.staticTexts["Algorithm Design - Jon Kleinberg and Eva Tardos, Tsinghua Univer"].click()
+        
+        XCTAssert(elementsQuery.staticTexts["Algorithm Design - Jon Kleinberg and Eva Tardos, Tsinghua Univer"].exists);
+        
+    }
+    
+    func testTextDirectory() {
+        
+        let elementsQuery = XCUIApplication().windows["Vis"].browsers.scrollViews.otherElements
+        elementsQuery.staticTexts["Test Directory"].click()
+        elementsQuery.staticTexts["Text Files"].click()
+        elementsQuery.staticTexts["Vision.txt"].click()
+        
+        XCTAssert(elementsQuery.staticTexts["Vision.txt"].exists)
+        
+    }
+    
+    func testPictureDirectory() {
+        
+        let visWindow = XCUIApplication().windows["Vis"]
+        visWindow.click()
+        visWindow.click()
+        
+        let elementsQuery = visWindow.browsers.scrollViews.otherElements
+        elementsQuery.staticTexts["Test Directory"].click()
+        elementsQuery.staticTexts["Picture Files"].click()
+        elementsQuery.staticTexts["Impression.jpg"].click()
+        
+        XCTAssert(elementsQuery.staticTexts["Impression.jpg"].exists)
+    }
+    
+    func testPDFFileImage() {
+        
+        let visWindow = XCUIApplication().windows["Vis"]
+        let elementsQuery = visWindow.browsers.scrollViews.otherElements
+        elementsQuery.staticTexts["Test Directory"].click()
+        elementsQuery.staticTexts["PDF Files"].click()
+        elementsQuery.staticTexts["Algorithm Design - Jon Kleinberg and Eva Tardos, Tsinghua Univer"].click()
+        XCTAssert(visWindow.childrenMatchingType(.SplitGroup).element.childrenMatchingType(.SplitGroup).element.childrenMatchingType(.Image).element.exists)
+        
+    }
+    
+    func testPDFFileInfo() {
+        
+        let visWindow = XCUIApplication().windows["Vis"]
+        let elementsQuery = visWindow.browsers.scrollViews.otherElements
+        elementsQuery.staticTexts["Test Directory"].click()
+        elementsQuery.staticTexts["PDF Files"].click()
+        elementsQuery.staticTexts["Algorithm Design - Jon Kleinberg and Eva Tardos, Tsinghua Univer"].click()
+        visWindow.staticTexts["Portable Document Format"].rightClick()
+        visWindow.staticTexts["5,975,786 Bytes"].click()
+        
+        XCTAssert(visWindow.staticTexts["Portable Document Format"].exists)
+        XCTAssert(visWindow.staticTexts["5,975,786 Bytes"].exists)
+        
     }
     
 }
