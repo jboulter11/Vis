@@ -1,0 +1,11 @@
+
+Beatrice Oldman, 69
+
+Beatrice Oldman lives with her husband, Gary Oldman, in their home. She has a high school diploma, and is now retired. She has always reveled in her hobby of photography, specifically of her cat, Mr. Snuffles. She has many photos of her cat, in his many outfits. The multitudes of outfits has caused severe tension between Beatrice and Mr. Snuffles, and the multitudes of photos are taking up a lot of space. 
+Since retiring from her occupation as a second hand book store clerk, she has a new profound desire to keep in contact with her family on her new Macbook Air, which she received as a present from her grandson. This has resulted in numerous draft emails with different text formats all over her desktop. Through the various emails, Beatrice has received a bounty of photos of her family, all saved to her desktop. Although she is a fairly clean person, Beatrice has never once deleted a file off of her computer. As a result, she only has 4 megabytes of space left on her hard drive.
+Beatrice wants to save space on her hard drive (as well as understand how her space is being used. She wants to find misplaced photos of her family. She also wants to organize those pictures, as well as the various programs and documents she’s downloaded. She wants to delete old files she no longer cares about, and organize the remainder. Lastly, she wants to separate her saved web pages from her forwarded emails.
+
+
+Solutions
+
+Beatrice got a notification that she doesn’t have enough space on her computer. She clicks on the program installed by her grandson. The program asks if she would like to start via a pop-up dialog box, to which she responds ‘Yes.’ A dialog appears that tells her the program is looking at her files to analyze space. It finishes and tells her that most of her space is taken up by videos, while showing her a visual representation of which files are taking up the most space. She clicks on a few files that she no longer wants, clicking the ‘Mark for Deletion’ icon, an ‘X’ next to the file, for each one. Once she clicks ‘Done’, the program asks if she’s sure she wants to delete those files. After clicking ‘Yes’, she gets a dialog that says she has cleared enough space to use her computer and asks if she wants to continue. It is time to feed Mr. Snuffles so she closes the program to feed her fluffy prince.

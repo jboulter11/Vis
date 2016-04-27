@@ -1,0 +1,9 @@
+Alex Moran
+	Alex Moran, a 26 year old white male with a degree in business, works in sales, making a little over $30,000 a year. He lives alone, in a small apartment he can just afford. He is a big fan of Italian cinema, so he torrents a large amount of Italian cinema. He is also a big fan of “chill” Dubstep and House music.
+	Alex downloads a “desktop app of the week” and has only ever used two of them. About 10% of his malware is actual software. He has many lost .tor files. He frequently throws his computer because “It’s not as fast as it should be.”
+	Alex has come to his senses and wants to remove all the files that have not been touched for over a year. He wants to sort his music by metadata tags, as well as sort his videos by metadata tags. He wants to find all the Italian cinema files that he’s misplaced. Finally, he wants to clear out all his .tor files.
+
+
+Solutions
+
+Alex is having a big party on Saturday but he can’t find the dubstep and house music he wants. He opens up the program, and clicks the “Organize” button. The view changes, and asks him what he wants to organize. He clicks the “Music” button. The program shows him a list of all of his music files (.mp3, .FLAC, .aac etc.). He clicks the option to sort by genre. The program then moves each file to the corresponding genre folder in the music folder on his hard drive.  He then copies the ‘chill brostep’ folder to a flash drive and goes on his merry way.
