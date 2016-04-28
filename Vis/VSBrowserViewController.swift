@@ -23,6 +23,8 @@ class VSBrowserViewController: NSViewController {
         // Do view setup here.
         
         browser.action = #selector(self.didSelectSomething)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadData), name:"DataDidChange", object: nil)
     }
     
     //get parent node for specific column
@@ -73,5 +75,9 @@ class VSBrowserViewController: NSViewController {
         }
         VSExec.exec.selectedPath = path
         NSNotificationCenter.defaultCenter().postNotificationName("SelectedPathDidChange", object: nil)
+    }
+    
+    func reloadData() {
+        browser.reloadColumn(0)
     }
 }

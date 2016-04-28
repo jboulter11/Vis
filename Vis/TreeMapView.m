@@ -296,7 +296,7 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
     if(event.type == NSRightMouseDown)
     {
         NSMenu *theMenu = [[NSMenu alloc] initWithTitle:@"Contextual Menu"];
-        [theMenu insertItemWithTitle:@"Delete" action:@selector(delegateShouldDeleteRightClickedItem:) keyEquivalent:@"" atIndex:0];
+        [theMenu insertItemWithTitle:@"Delete" action:@selector(delegateShouldDeleteRightClickedItem:) keyEquivalent:@"D" atIndex:0];
         return theMenu;
     }
     return [super menuForEvent: event];

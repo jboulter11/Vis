@@ -51,7 +51,7 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
         if let i = item {
             return Path(String(i))
         } else {
-            return VSExec.exec.selectedPath
+            return VSExec.exec.rootPath
         }
     }
     
@@ -103,14 +103,18 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     }
     
     func treeMapView(view: TreeMapView!, needsDeleteItem item: AnyObject!) {
-        let str = String(item)
-        if let itemPath:Path! = Path(String(item!)) {
-            do {
-                try itemPath.deleteFile()
-            } catch FileKitError.DeleteFileFail {
-                //File deletion failed
-            } catch {
-                //Who knows?
+        if let _ = item {
+            if let itemPath:Path! = Path(String(item!)) {
+                do {
+                    try itemPath.deleteFile()
+//                    let path = VSExec.exec.selectedPath.components.map{$0.rawValue} as [AnyObject]
+//                    treeMapView.reloadAndPerformZoomIntoItem(path)
+                    NSNotificationCenter.defaultCenter().postNotificationName("DataDidChange", object: self)
+                } catch FileKitError.DeleteFileFail {
+                    //File deletion failed
+                } catch {
+                    //Who knows?
+                }
             }
         }
         
