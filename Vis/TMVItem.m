@@ -493,7 +493,6 @@ static NSMutableDictionary *_cushionTextAttributes;
     unsigned childCount = [_dataSource treeMapView: _view numberOfChildrenOfItem: _item];
     unsigned i;
 
-//	[_childRenderers release];
     _childRenderers = [[NSMutableArray alloc] initWithCapacity: childCount];
 
     for ( i = 0; i < childCount; i++ )
@@ -505,8 +504,6 @@ static NSMutableDictionary *_cushionTextAttributes;
             initWithDataSource: _dataSource delegate: _delegate renderedItem: childItem treeMapView: _view];
 
         [_childRenderers addObject: childRenderer];
-
-//        [childRenderer release];
     }
 }
 

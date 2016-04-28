@@ -445,6 +445,93 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0C1207BD1CD18C2100876763 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Testing;
+		};
+		0C1207BE1CD18C2100876763 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E09E939BA584E72C52CD8480 /* Pods-Vis.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Vis/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jimboulter.Vis;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Vis/Vis-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Testing;
+		};
+		0C1207BF1CD18C2100876763 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = VisTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jimboulter.VisTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vis.app/Contents/MacOS/Vis";
+			};
+			name = Testing;
+		};
+		0C1207C01CD18C2100876763 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = VisUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-DTESTING";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jimboulter.VisUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Vis;
+			};
+			name = Testing;
+		};
 		0C42ED9D1CB065BE00DAF883 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -615,6 +702,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0C42ED9D1CB065BE00DAF883 /* Debug */,
+				0C1207BD1CD18C2100876763 /* Testing */,
 				0C42ED9E1CB065BE00DAF883 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -624,6 +712,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0C42EDA01CB065BE00DAF883 /* Debug */,
+				0C1207BE1CD18C2100876763 /* Testing */,
 				0C42EDA11CB065BE00DAF883 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -633,6 +722,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0C42EDA31CB065BE00DAF883 /* Debug */,
+				0C1207BF1CD18C2100876763 /* Testing */,
 				0C42EDA41CB065BE00DAF883 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -642,6 +732,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0C42EDA61CB065BE00DAF883 /* Debug */,
+				0C1207C01CD18C2100876763 /* Testing */,
 				0C42EDA71CB065BE00DAF883 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
