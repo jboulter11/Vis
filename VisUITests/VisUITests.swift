@@ -135,6 +135,7 @@ class VisUITests: XCTestCase {
     
     func testDelete() {
         
+        
         let visWindow = XCUIApplication().windows["Vis"]
         let elementsQuery = visWindow.browsers.scrollViews.otherElements
         elementsQuery.staticTexts["Test Directory"].click()
@@ -142,8 +143,11 @@ class VisUITests: XCTestCase {
         elementsQuery.staticTexts["deleteme.txt"].click()
         
         let splitGroup = visWindow.childrenMatchingType(.SplitGroup).element
-        splitGroup.rightClick()
+        
+        let coordinate = splitGroup.coordinateWithNormalizedOffset(CGVector(dx: 0, dy: 0)).coordinateWithOffset(CGVector(dx: 589.8828125, dy: 500.0))
+        coordinate.rightClick()
         splitGroup.typeKey("d", modifierFlags:[.Command, .Shift])
+        
         XCTAssertFalse(elementsQuery.staticTexts["deleteme.txt"].exists)
         
     }

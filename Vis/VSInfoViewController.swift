@@ -39,7 +39,7 @@ class VSInfoViewController: NSViewController {
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        preferredContentSize = NSSize(width: 500, height: 400)
+        preferredContentSize = NSSize(width: 500, height: 300)
     }
     
     override func viewDidLoad() {
