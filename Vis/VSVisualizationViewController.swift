@@ -15,7 +15,7 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        preferredContentSize = NSSize(width: 1000, height: 600)
+        preferredContentSize = NSSize(width: 1000, height: 400)
     }
     
     let fileTypeColors: FileTypeColors = FileTypeColors()
