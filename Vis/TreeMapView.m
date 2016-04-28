@@ -327,6 +327,11 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
     return _selectedRenderer == nil ? nil : [_selectedRenderer item];
 }
 
+- (id) rootItem
+{
+    return currentRoot;
+}
+
 - (id) itemByCellId: (TMVCellId) cellId
 {
     NSParameterAssert( cellId != nil );
@@ -404,6 +409,9 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
     //path must at least contain one item (the root item)
 	NSAssert( [path count] > 0, @"path must contain at least 1 component" );
 	
+    //save the current root
+    currentRoot = [path componentsJoinedByString:@"/"].stringByStandardizingPath;
+    
 	NSRect viewBounds = [self bounds];
 	
 	//just reload if item to zoom in is too small
@@ -414,6 +422,7 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 	{
 		if ( renderer == nil )
 			NSLog( @"item to zoom in wasn't found" );
+        
 		[self reloadData];
 		return;
 	}
@@ -455,6 +464,9 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
     //path must at least contain one item (the root item)
 	NSAssert( [path count] > 0, @"path must contain at least 1 component" );
 	
+    //save the current root
+    currentRoot = [path componentsJoinedByString:@"/"].stringByStandardizingPath;
+    
 	NSRect viewBounds = [self bounds];
 	
 	//reload and render content

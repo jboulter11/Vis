@@ -35,7 +35,12 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
             treeMapView.reloadAndPerformZoomIntoItem(path)
         }
         else {
-            treeMapView.selectItemByPathToItem(path)
+            
+            if VSExec.exec.selectedPath != Path(String(treeMapView.rootItem())) {
+                treeMapView.reloadAndPerformZoomOutofItem(path)
+            } else {
+                treeMapView.selectItemByPathToItem(path)
+            }
         }
     }
     

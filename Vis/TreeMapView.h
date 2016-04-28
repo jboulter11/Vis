@@ -17,6 +17,8 @@ typedef TMVItem* TMVCellId;
 
 @interface TreeMapView : NSView
 {
+    id currentRoot;
+    
     TMVItem *_rootItemRenderer;
     IBOutlet id delegate;
     IBOutlet id dataSource;
@@ -46,6 +48,8 @@ typedef TMVItem* TMVCellId;
 
 - (id) selectedItem;
 	//returns selected data item
+- (id) rootItem;
+    //returns the current root item
 - (void) selectItemByCellId: (TMVCellId) cellId;
 	//selects a treemap cell
 - (void) selectItemByPathToItem: (NSArray*) path;

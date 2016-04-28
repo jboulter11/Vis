@@ -135,17 +135,16 @@ class VisUITests: XCTestCase {
     
     func testDelete() {
         
-        
-        let elementsQuery = XCUIApplication().windows["Vis"].browsers.scrollViews.otherElements
+        let visWindow = XCUIApplication().windows["Vis"]
+        let elementsQuery = visWindow.browsers.scrollViews.otherElements
         elementsQuery.staticTexts["Test Directory"].click()
-        
-        let textFilesStaticText = elementsQuery.staticTexts["Text Files"]
-        textFilesStaticText.click()
+        elementsQuery.staticTexts["Text Files"].click()
         elementsQuery.staticTexts["deleteme.txt"].click()
-        textFilesStaticText.click()
-        elementsQuery.staticTexts["Picture Files"].click()
-        textFilesStaticText.click()
         
+        let splitGroup = visWindow.childrenMatchingType(.SplitGroup).element
+        splitGroup.rightClick()
+        splitGroup.typeKey("d", modifierFlags:[.Command, .Shift])
+        XCTAssertFalse(elementsQuery.staticTexts["deleteme.txt"].exists)
         
     }
     
