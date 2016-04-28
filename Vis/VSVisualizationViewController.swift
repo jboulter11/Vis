@@ -50,7 +50,10 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
         if let i = item {
             return Path(String(i))
         } else {
-            return VSExec.exec.rootPath
+            if !VSExec.exec.selectedPath.isDirectory {
+                return VSExec.exec.selectedPath.parent
+            }
+            return VSExec.exec.selectedPath
         }
     }
     
