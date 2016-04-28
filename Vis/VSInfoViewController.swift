@@ -31,6 +31,7 @@ class VSInfoViewController: NSViewController {
     @IBOutlet weak var modifiedDate: NSTextField!
     @IBOutlet weak var location: NSTextField!
     @IBOutlet weak var locationInfo: NSTextField!
+    @IBOutlet weak var titleTextView: NSTextField!
     
     // This is the place where we store text from a file for the text view
     
@@ -58,6 +59,7 @@ class VSInfoViewController: NSViewController {
         //  This is our observer for file selection. This is called whenever a new file is selected.
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didReceiveNotification), name: "SelectedPathDidChange", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didReceiveNotification), name: "SelectionChangedFromTreeMap", object: nil)
         
     }
     
@@ -83,14 +85,13 @@ class VSInfoViewController: NSViewController {
         numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         
         // Hides the overlapping views
-        
         fileInfo.editable = false
         fileInfo.hidden = true
         scrollView.hidden = true
         imageDisplay.hidden = true
         
         // Sets the values for file type
-        
+        titleTextView.stringValue = fpath.fileName
         locationInfo.stringValue = fpath.rawValue
         sizeInfo.stringValue = "\(numberFormatter.stringFromNumber(NSNumber(unsignedLongLong: fpath.fileSize!))!) Bytes"
         type.stringValue = fpath.pathExtension

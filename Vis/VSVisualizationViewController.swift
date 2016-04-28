@@ -23,20 +23,20 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     // load data from filesystem into visualization
     override func viewDidLoad() {
         super.viewDidLoad()
-        treeMapView.reloadData()
+        treeMapView.reloadAndPerformZoomIntoItem(VSExec.exec.rootPath.components.map{$0.rawValue} as [AnyObject])
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didReceiveNotification), name: "SelectedPathDidChange", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(selectionChangedNotification), name: TreeMapViewSelectionDidChangedNotification, object: nil)
     }
     
     // notification listener for change in selected path
     func didReceiveNotification() {
-        let path = VSExec.exec.selectedPath.components.map{$0.rawValue} as [AnyObject]
+        var path = VSExec.exec.selectedPath.components.map{$0.rawValue} as [AnyObject]
         if VSExec.exec.selectedPath.isDirectory {
             treeMapView.reloadAndPerformZoomIntoItem(path)
         }
         else {
-            
-            if VSExec.exec.selectedPath != Path(String(treeMapView.rootItem())) {
+            if VSExec.exec.selectedPath.parent != Path(String(treeMapView.rootItem())) {
+                path.removeLast()
                 treeMapView.reloadAndPerformZoomOutofItem(path)
             } else {
                 treeMapView.selectItemByPathToItem(path)
@@ -46,6 +46,10 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     
     func selectionChangedNotification() {
         let item = String(treeMapView.selectedItem())
+        if let selectedPath:String = treeMapView.selectedItem() as? String {
+            VSExec.exec.selectedPath = Path(selectedPath)
+        }
+        NSNotificationCenter.defaultCenter().postNotificationName("SelectionChangedFromTreeMap", object: self)
         print(item)
     }
     

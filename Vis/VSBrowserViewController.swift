@@ -24,7 +24,8 @@ class VSBrowserViewController: NSViewController {
         
         browser.action = #selector(self.didSelectSomething)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadData), name:"DataDidChange", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshSelectedColumn), name:"DataDidChange", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(displayNewSelectedPath), name:"SelectionChangedFromTreeMap", object: nil)
     }
     
     //get parent node for specific column
@@ -77,7 +78,12 @@ class VSBrowserViewController: NSViewController {
         NSNotificationCenter.defaultCenter().postNotificationName("SelectedPathDidChange", object: nil)
     }
     
-    func reloadData() {
-        browser.reloadColumn(0)
+    func refreshSelectedColumn() {
+        browser.reloadColumn(browser.selectedColumn)
+    }
+    
+    func displayNewSelectedPath() {
+//        print(VSExec.exec.selectedPath.rawValue)
+//        print(browser.setPath(VSExec.exec.selectedPath.rawValue))
     }
 }
