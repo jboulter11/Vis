@@ -15,7 +15,7 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        preferredContentSize = NSSize(width: 1000, height: 400)
+        preferredContentSize = NSSize(width: 1000, height: 600)
     }
     
     let fileTypeColors: FileTypeColors = FileTypeColors()
@@ -37,7 +37,6 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
         else {
             treeMapView.selectItemByPathToItem(path)
         }
-
     }
     
     func selectionChangedNotification() {
@@ -107,8 +106,8 @@ class VSVisualizationViewController: NSViewController, TreeMapViewDataSource, Tr
             if let itemPath:Path! = Path(String(item!)) {
                 do {
                     try itemPath.deleteFile()
-//                    let path = VSExec.exec.selectedPath.components.map{$0.rawValue} as [AnyObject]
-//                    treeMapView.reloadAndPerformZoomIntoItem(path)
+                    let path = VSExec.exec.selectedPath.components.map{$0.rawValue} as [AnyObject]
+                    treeMapView.reloadAndPerformZoomIntoItem(path)
                     NSNotificationCenter.defaultCenter().postNotificationName("DataDidChange", object: self)
                 } catch FileKitError.DeleteFileFail {
                     //File deletion failed
