@@ -57,6 +57,7 @@
 		0C42ED9C1CB065BE00DAF883 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C42EDA81CB0686800DAF883 /* VSBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSBrowserViewController.swift; sourceTree = "<group>"; };
 		0C42EDAB1CB0987500DAF883 /* VSVisualizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSVisualizationViewController.swift; sourceTree = "<group>"; };
+		0CA655601CD2F29500D4D941 /* Vis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Vis.entitlements; sourceTree = "<group>"; };
 		0CB67D251CB4AC53007269E3 /* NSBitmapImageRep-CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBitmapImageRep-CreationExtensions.h"; sourceTree = "<group>"; };
 		0CB67D261CB4AC53007269E3 /* NSBitmapImageRep-CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBitmapImageRep-CreationExtensions.m"; sourceTree = "<group>"; };
 		0CB67D271CB4AC53007269E3 /* TMVCushionRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMVCushionRenderer.h; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 		0C42ED7C1CB065BD00DAF883 /* Vis */ = {
 			isa = PBXGroup;
 			children = (
+				0CA655601CD2F29500D4D941 /* Vis.entitlements */,
 				0CBE667A1CB5AFAA009FA543 /* VSExec.swift */,
 				0CB67D2E1CB4AC53007269E3 /* Vis-Bridging-Header.h */,
 				0CB67D361CB4AC59007269E3 /* TreeMapView */,
@@ -277,6 +279,12 @@
 				TargetAttributes = {
 					0C42ED791CB065BD00DAF883 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 226W9978N7;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					0C42ED8A1CB065BE00DAF883 = {
 						CreatedOnToolsVersion = 7.3;
@@ -497,6 +505,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Vis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -623,6 +632,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Vis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -639,6 +649,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Vis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
